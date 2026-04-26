@@ -1,66 +1,73 @@
 -- ============================================================
---  Catppuccin Mocha Colorscheme
+--  Tokyonight — Most Bright & Colorful Setup
 -- ============================================================
 return {
 	{
-		"catppuccin/nvim",
-		name = "catppuccin",
+		"folke/tokyonight.nvim",
 		priority = 1000,
 		lazy = false,
 		opts = {
-			flavour = "mocha",
-			background = { light = "latte", dark = "mocha" },
-			transparent_background = false,
-			show_end_of_buffer = false,
-			term_colors = true,
+			style = "moon",
+			light_style = "day",
+			transparent = false,
+			terminal_colors = true,
 			styles = {
-				comments = { "italic" },
-				conditionals = { "italic" },
-				functions = { "bold" },
-				keywords = { "italic" },
-				booleans = { "bold" },
-				types = { "bold" },
+				comments = { italic = true },
+				keywords = { italic = true, bold = true },
+				functions = { bold = true },
+				variables = {},
+				sidebars = "dark",
+				floats = "dark",
 			},
-			integrations = {
-				cmp = true,
-				gitsigns = true,
-				neo_tree = true,
-				treesitter = true,
-				telescope = { enabled = true },
-				which_key = true,
-				mason = true,
-				dap = { enabled = true, enable_ui = true },
-				lsp_trouble = true,
-				indent_blankline = { enabled = true, scope_color = "lavender" },
-				bufferline = { enabled = true },
-				native_lsp = {
-					enabled = true,
-					virtual_text = {
-						errors = { "italic" },
-						hints = { "italic" },
-						warnings = { "italic" },
-						information = { "italic" },
-					},
-					underlines = {
-						errors = { "underline" },
-						hints = { "underline" },
-						warnings = { "underline" },
-						information = { "underline" },
-					},
-					inlay_hints = { background = true },
-				},
-			},
+			on_highlights = function(hl, c)
+				-- Keywords — bright purple
+				hl["@keyword"] = { fg = c.purple, bold = true, italic = true }
+				hl["@keyword.function"] = { fg = c.magenta, bold = true }
+				hl["@keyword.return"] = { fg = c.red, bold = true }
+				-- Functions — bright blue
+				hl["@function"] = { fg = c.blue, bold = true }
+				hl["@function.call"] = { fg = c.cyan, bold = true }
+				hl["@method"] = { fg = c.blue1, bold = true }
+				-- Strings — bright green
+				hl["@string"] = { fg = c.green }
+				hl["@string.escape"] = { fg = c.yellow, bold = true }
+				-- Numbers — bright orange
+				hl["@number"] = { fg = c.orange, bold = true }
+				hl["@float"] = { fg = c.orange }
+				-- Types — bright yellow
+				hl["@type"] = { fg = c.yellow, bold = true }
+				hl["@type.builtin"] = { fg = c.yellow1, bold = true }
+				-- Variables
+				hl["@variable"] = { fg = c.fg }
+				hl["@variable.builtin"] = { fg = c.red, bold = true }
+				-- Constants — bright orange
+				hl["@constant"] = { fg = c.orange, bold = true }
+				hl["@constant.builtin"] = { fg = c.orange, bold = true }
+				-- Comments — visible but subtle
+				hl["@comment"] = { fg = c.comment, italic = true }
+				-- Operators — bright teal
+				hl["@operator"] = { fg = c.cyan, bold = true }
+				-- Punctuation
+				hl["@punctuation.bracket"] = { fg = c.blue5 }
+				hl["@punctuation.delimiter"] = { fg = c.blue5 }
+				-- Parameters — bright red
+				hl["@parameter"] = { fg = c.red1 }
+				-- Include/imports
+				hl["@include"] = { fg = c.magenta, bold = true }
+				-- C/C++ specific
+				hl["@type.qualifier"] = { fg = c.purple, bold = true }
+				hl["@storageclass"] = { fg = c.purple, bold = true }
+			end,
 		},
 		config = function(_, opts)
-			require("catppuccin").setup(opts)
-			vim.cmd.colorscheme("catppuccin")
-			-- force lualine to reload theme after colorscheme is set
+			require("tokyonight").setup(opts)
+			vim.cmd.colorscheme("tokyonight-moon")
 			vim.defer_fn(function()
 				local ok, lualine = pcall(require, "lualine")
 				if ok then
 					lualine.setup({
 						options = {
-							theme = "auto",
+							theme = "tokyonight",
 							globalstatus = true,
 							component_separators = { left = "", right = "" },
 							section_separators = { left = "", right = "" },
@@ -100,5 +107,12 @@ return {
 				end
 			end, 500)
 		end,
+	},
+	-- Keep catppuccin installed for fallback
+	{
+		"catppuccin/nvim",
+		name = "catppuccin",
+		priority = 999,
+		lazy = true,
 	},
 }
