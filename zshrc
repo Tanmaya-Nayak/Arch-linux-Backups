@@ -147,3 +147,5 @@ alias wifion='nmcli radio wifi on'
 alias wifioff='nmcli radio wifi off'
 alias netstat='nmcli connection show --active'
 wificonnect() { nmcli device wifi connect "$1" password "$2"; }
+export PATH="$HOME/.npm-global/bin:$PATH"
+export PATH="$HOME/.npm-global/bin:$PATH"
