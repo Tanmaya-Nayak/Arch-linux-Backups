@@ -15,14 +15,14 @@ if is_wayland() then
 	vim.g.clipboard = {
 		name = "wl-clipboard",
 		copy = {
-			["+"] = { "wl-copy", "--foreground", "--type", "text/plain" },
-			["*"] = { "wl-copy", "--foreground", "--primary", "--type", "text/plain" },
+			["+"] = { "wl-copy", "--type", "text/plain" },
+			["*"] = { "wl-copy", "--primary", "--type", "text/plain" },
 		},
 		paste = {
 			["+"] = { "wl-paste", "--no-newline", "--type", "text/plain" },
 			["*"] = { "wl-paste", "--no-newline", "--primary", "--type", "text/plain" },
 		},
-		cache_enabled = false,
+		cache_enabled = 0,
 	}
 	vim.opt.clipboard = "unnamedplus"
 

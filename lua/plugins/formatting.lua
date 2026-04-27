@@ -38,7 +38,7 @@ return {
 			},
 			formatters = {
 				clang_format = {
-					prepend_args = { "--style=file,{BasedOnStyle: LLVM, IndentWidth: 4}" },
+					prepend_args = { "--style=LLVM" },
 				},
 				shfmt = {
 					prepend_args = { "-i", "2", "-ci" },
