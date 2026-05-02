@@ -69,6 +69,11 @@ return {
 				vim.api.nvim_set_hl(0, "Comment", { fg = "#AAAAAA", italic = true })
 				vim.api.nvim_set_hl(0, "Special", { fg = "#FF8C00", bold = true })
 				vim.api.nvim_set_hl(0, "SpecialChar", { fg = "#FF8C00", bold = true })
+				-- Cursor colors per mode (matches lualine neon theme)
+				vim.api.nvim_set_hl(0, "Cursor",        { fg = "#000000", bg = "#FF007C" })
+				vim.api.nvim_set_hl(0, "CursorInsert",  { fg = "#000000", bg = "#00FF00" })
+				vim.api.nvim_set_hl(0, "CursorReplace", { fg = "#000000", bg = "#FF8C00" })
+				vim.api.nvim_set_hl(0, "CursorLine",    { bg = "#0a0a0a" })
 				-- Black background
 				vim.api.nvim_set_hl(0, "Normal", { bg = "#000000" })
 				vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#000000" })

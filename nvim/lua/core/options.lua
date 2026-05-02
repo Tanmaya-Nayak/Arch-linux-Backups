@@ -81,3 +81,13 @@ vim.opt.shellxquote  = ""
 -- ── Suppress unused provider warnings ────────────────────────
 vim.g.loaded_perl_provider = 0
 vim.g.loaded_ruby_provider = 0
+
+-- ── Animated Cursor ───────────────────────────────────────
+opt.guicursor = table.concat({
+    "n-v:block-Cursor",
+    "i-ci:ver25-CursorInsert",
+    "r-cr:hor20-CursorReplace",
+    "o:hor50",
+    "a:blinkwait700-blinkoff400-blinkon250",
+    "sm:block-blinkwait175-blinkoff150-blinkon175",
+}, ",")

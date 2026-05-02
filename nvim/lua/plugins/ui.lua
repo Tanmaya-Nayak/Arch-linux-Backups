@@ -248,4 +248,22 @@ return {
 			})
 		end,
 	},
+
+	-- ── Smear Cursor (animated neon trail) ────────────────────
+	{
+		"sphkr/smear-cursor.nvim",
+		event = "VimEnter",
+		opts = {
+			smear_between_buffers = true,
+			smear_between_neighbor_lines = true,
+			scroll_buffer_space = true,
+			legacy_computing_symbols_support = false,
+			stiffness = 0.8,
+			trailing_stiffness = 0.5,
+			distance_stop_animating = 0.5,
+			hide_target_hack = true,
+			cursor_color = "#00FFFF",
+			normal_bg = "#000000",
+		},
+	},
 }
