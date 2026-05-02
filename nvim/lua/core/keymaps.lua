@@ -77,3 +77,52 @@ map("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 -- ── Misc ─────────────────────────────────────────────────────
 map("n", "<leader>lz", "<cmd>Lazy<CR>", { desc = "Lazy plugin manager" })
 map("n", "<leader>mm", "<cmd>Mason<CR>", { desc = "Mason LSP installer" })
+
+-- ── Smart Compile & Run ──────────────────────────────────────
+local function run_file()
+    local ft = vim.bo.filetype
+    local file = vim.fn.expand("%:p")
+    local fname = vim.fn.expand("%:t:r")
+    local dir = vim.fn.expand("%:p:h")
+    local cmd
+
+    if ft == "c" then
+        cmd = string.format("cd '%s' && gcc '%s' -o '%s' && ./'%s'", dir, file, fname, fname)
+    elseif ft == "cpp" then
+        cmd = string.format("cd %s && g++ -std=c++17 %s -o %s && ./%s", dir, file, fname, fname)
+    elseif ft == "python" then
+        cmd = string.format("cd %s && python3 %s", dir, file)
+    elseif ft == "java" then
+        cmd = string.format("cd %s && javac %s && java %s", dir, file, fname)
+    elseif ft == "javascript" then
+        cmd = string.format("cd %s && node %s", dir, file)
+    elseif ft == "typescript" then
+        cmd = string.format("cd %s && ts-node %s", dir, file)
+    elseif ft == "sh" or ft == "bash" then
+        cmd = string.format("cd %s && bash %s", dir, file)
+    elseif ft == "lua" then
+        cmd = string.format("cd %s && lua %s", dir, file)
+    elseif ft == "rust" then
+        cmd = string.format("cd %s && cargo run", dir)
+    elseif ft == "go" then
+        cmd = string.format("cd %s && go run %s", dir, file)
+    else
+        vim.notify("No runner configured for filetype: " .. ft, vim.log.levels.WARN)
+        return
+    end
+
+    -- Save first
+    vim.cmd("w")
+    -- Run in horizontal toggleterm
+    require("toggleterm.terminal").Terminal:new({
+        cmd = cmd,
+        direction = "horizontal",
+        close_on_exit = false,
+        on_open = function(term)
+            vim.cmd("startinsert!")
+        end,
+    }):toggle()
+end
+
+map("n", "<leader>rr", run_file, { desc = "Run current file" })
+map("n", "<F5>", run_file, { desc = "Run current file" })

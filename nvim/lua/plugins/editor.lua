@@ -148,7 +148,7 @@ return {
       direction      = "float",
       close_on_exit  = true,
       shell          = vim.o.shell,
-      float_opts     = { border = "curved", winblend = 3 },
+      float_opts     = { border = "curved", winblend = 0 },
     },
     config = function(_, opts)
       require("toggleterm").setup(opts)
