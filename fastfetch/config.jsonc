@@ -3,32 +3,88 @@
   "logo": {
     "source": "arch",
     "color": {
-      "1": "blue",
+      "1": "magenta",
       "2": "cyan"
     }
   },
   "display": {
     "separator": " → ",
     "color": {
-      "keys": "blue",
-      "title": "cyan"
+      "keys": "magenta",
+      "title": "cyan",
+      "output": "green"
     }
   },
   "modules": [
-    "title",
+    {
+      "type": "title",
+      "color": {
+        "user": "bright_magenta",
+        "at": "bright_cyan",
+        "host": "bright_green"
+      }
+    },
     "separator",
-    "os",
-    "kernel",
-    "uptime",
-    "packages",
-    "shell",
-    "wm",
-    "terminal",
-    "cpu",
-    "gpu",
-    "memory",
-    "disk",
-    "battery",
+    {
+      "type": "os",
+      "key": " OS",
+      "keyColor": "magenta"
+    },
+    {
+      "type": "kernel",
+      "key": " Kernel",
+      "keyColor": "cyan"
+    },
+    {
+      "type": "uptime",
+      "key": " Uptime",
+      "keyColor": "green"
+    },
+    {
+      "type": "packages",
+      "key": " Packages",
+      "keyColor": "yellow"
+    },
+    {
+      "type": "shell",
+      "key": " Shell",
+      "keyColor": "magenta"
+    },
+    {
+      "type": "wm",
+      "key": " WM",
+      "keyColor": "cyan"
+    },
+    {
+      "type": "terminal",
+      "key": " Terminal",
+      "keyColor": "green"
+    },
+    {
+      "type": "cpu",
+      "key": " CPU",
+      "keyColor": "yellow"
+    },
+    {
+      "type": "gpu",
+      "key": " GPU",
+      "keyColor": "magenta"
+    },
+    {
+      "type": "memory",
+      "key": " Memory",
+      "keyColor": "cyan"
+    },
+    {
+      "type": "disk",
+      "key": " Disk",
+      "keyColor": "green"
+    },
+    {
+      "type": "battery",
+      "key": " Battery",
+      "keyColor": "yellow"
+    },
     "break",
     "colors"
   ]
