@@ -26,6 +26,16 @@ Arch Linux + Hyprland setup. Clone and run install.sh to restore everything.
 
 ---
 
+## Theme / Aesthetic
+Pure neon on black across all tools:
+- **Colors:** Hot pink `#FF007C`, Cyan `#00FFFF`, Green `#00FF00`, Yellow `#FFFF00` on pure black `#000000`
+- **Neovim:** Monokai Pro neon colorscheme
+- **Kitty:** Pure black background + neon colors
+- **Yazi:** Custom neon theme (Yazi 26.x schema format)
+- **Btop:** Custom `neon_black` theme
+
+---
+
 ## Fresh install steps
 
 ### 1. Install yay
@@ -93,9 +103,9 @@ chsh -s $(which zsh)
 | kitty/ | ~/.config/kitty |
 | nvim/ | ~/.config/nvim |
 | mako/config | ~/.config/mako/config |
-| btop/btop.conf | ~/.config/btop/btop.conf |
+| btop/ | ~/.config/btop |
 | fastfetch/ | ~/.config/fastfetch |
-| yazi/opener.toml | ~/.config/yazi/opener.toml |
+| yazi/ | ~/.config/yazi |
 | zshrc | ~/.zshrc |
 
 ---
@@ -103,7 +113,9 @@ chsh -s $(which zsh)
 ## Notes
 - Neovim plugins auto-install on first launch via lazy.nvim
 - Neovim uses nvim 0.11+ native vim.lsp.config (no lspconfig dependency)
-- Fonts needed: ttf-jetbrains-mono-nerd, ttf-meslo-nerd
-- Icons: papirus-icon-theme
+- Fonts needed: `ttf-jetbrains-mono-nerd`, `ttf-meslo-nerd`
+- Icons: `papirus-icon-theme`
 - TLP config stored in dotfiles/tlp.conf — copy to /etc/tlp.conf on restore
 - Battery charge thresholds set to 75-80% for longevity
+- Yazi theme uses 26.x schema format (`"$schema"` field required, `url` instead of `name` in filetype rules)
+- Btop uses custom `neon_black` theme located in `btop/themes/neon_black.theme`
