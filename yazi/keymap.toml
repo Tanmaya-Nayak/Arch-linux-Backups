@@ -99,7 +99,9 @@ keymap = [
   { on = "<C-u>",   run = "kill --head",    desc = "Kill to start" },
   { on = "<C-k>",   run = "kill --tail",    desc = "Kill to end" },
   { on = "<C-w>",   run = "kill --back-word", desc = "Kill prev word" },
-  { on = "<BS>",    run = "backspace",      desc = "Backspace" },
+  { on = "<BS>",        run = "backspace",         desc = "Backspace" },
+  { on = "<C-h>",      run = "backspace",         desc = "Backspace (C-h)" },
+  { on = "<Del>",      run = "backspace --under", desc = "Delete" },
   { on = "<Left>",  run = "move -1",        desc = "Left" },
   { on = "<Right>", run = "move 1",         desc = "Right" },
 ]
