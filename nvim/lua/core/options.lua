@@ -91,3 +91,6 @@ opt.guicursor = table.concat({
     "a:blinkwait700-blinkoff400-blinkon250",
     "sm:block-blinkwait175-blinkoff150-blinkon175",
 }, ",")
+
+-- ── Suppress deprecation warnings from outdated plugins ──────
+vim.deprecate = function() end
