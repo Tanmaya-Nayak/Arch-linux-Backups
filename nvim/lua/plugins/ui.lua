@@ -251,7 +251,7 @@ return {
 
 	-- ── Smear Cursor (animated neon trail) ────────────────────
 	{
-		"sphkr/smear-cursor.nvim",
+		"sphamba/smear-cursor.nvim",
 		event = "VimEnter",
 		opts = {
 			smear_between_buffers = true,

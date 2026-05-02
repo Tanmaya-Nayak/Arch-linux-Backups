@@ -52,6 +52,9 @@ require("lazy").setup({
     },
   },
   rocks = { enabled = false },
+  git = {
+    url_format = "git@github.com:%s.git",
+  },
   checker = {
     enabled = true,   -- auto-check for plugin updates
     notify  = false,  -- don't notify on startup
