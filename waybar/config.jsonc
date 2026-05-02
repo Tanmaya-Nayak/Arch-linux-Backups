@@ -157,8 +157,8 @@
         "format-disabled":  "󰂲",
         "format-off":       "󰂲 Off",
         "format-on":        "󰂯 On",
-        "format-connected": "󰂱  {device_alias}",
-        "format-connected-battery": "󰂱  {device_alias} {device_battery_percentage}%",
+        "format-connected": "󰂱",
+        "format-connected-battery": "󰂱  {device_battery_percentage}%",
         "tooltip-format":   "{controller_alias}\n{controller_address}",
         "tooltip-format-connected": "{controller_alias}\n\nConnected:\n{device_enumerate}",
         "tooltip-format-enumerate-connected": "  {device_alias} ({device_address})",
@@ -174,9 +174,10 @@
             "warning":  30,
             "critical": 15
         },
-        "format":          "{icon}  {capacity}%",
-        "format-charging": "󱐋  {capacity}%",
-        "format-plugged":  "  {capacity}%",
+        "format":          "⚡ {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
+        "format-plugged":  "󰚥 {capacity}%",
+        "format-not-charging": "󰁹 {capacity}%",
         "format-full":     "  Full",
         "format-alt":      "{icon}  {time}",
         "format-icons":    ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
@@ -212,9 +213,9 @@
     "custom/screenshot": {
         "format": "󰄀",
         "tooltip": "Left: Area  |  Right: Fullscreen  |  Mid: Window",
-        "on-click":        "grimblast --notify copysave area ~/Pictures/Screenshots/$(date +%Y%m%d_%H%M%S).png",
-        "on-click-right":  "grimblast --notify copysave screen ~/Pictures/Screenshots/$(date +%Y%m%d_%H%M%S).png",
-        "on-click-middle": "grimblast --notify copysave active ~/Pictures/Screenshots/$(date +%Y%m%d_%H%M%S).png"
+        "on-click":        "slurp | grim -g - ~/Pictures/Screenshots/$(date +%Y%m%d_%H%M%S).png",
+        "on-click-right":  "grim ~/Pictures/Screenshots/$(date +%Y%m%d_%H%M%S).png",
+        "on-click-middle": "grim ~/Pictures/Screenshots/$(date +%Y%m%d_%H%M%S).png"
 
     },
 
