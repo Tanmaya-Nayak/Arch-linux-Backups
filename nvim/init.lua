@@ -6,6 +6,7 @@
 
 -- Load core settings first
 require("core.options")
+require("core.cursor_animation")
 require("core.keymaps")
 require("core.autocmds")
 require("core.hyprland") -- Hyprland/Wayland tweaks
