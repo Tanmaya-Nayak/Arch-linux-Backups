@@ -129,7 +129,10 @@ return {
   {
     "akinsho/toggleterm.nvim",
     version = "*",
-    keys    = { "<leader>tt", "<leader>tf" },
+    keys    = {
+      { "<leader>tt", "<cmd>ToggleTerm direction=horizontal<CR>", desc = "Terminal (horizontal)" },
+      { "<leader>tf", "<cmd>ToggleTerm direction=float<CR>", desc = "Terminal (float)" },
+    },
     opts    = {
       size = function(term)
         if term.direction == "horizontal" then return 15

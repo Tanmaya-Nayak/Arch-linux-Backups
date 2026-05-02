@@ -1,0 +1,84 @@
+"$schema" = "https://yazi-rs.github.io/schemas/theme.json"
+
+[manager]
+cwd = { fg = "#00FFFF", bold = true }
+hovered         = { fg = "#000000", bg = "#FF007C", bold = true }
+preview_hovered = { fg = "#000000", bg = "#00FFFF", underline = true }
+find_keyword    = { fg = "#FFFF00", bold = true, italic = true, underline = true }
+find_position   = { fg = "#00FF00", bg = "default", bold = true, italic = true }
+marker_copied   = { fg = "#00FF00", bg = "#00FF00" }
+marker_cut      = { fg = "#FF007C", bg = "#FF007C" }
+marker_marked   = { fg = "#00FFFF", bg = "#00FFFF" }
+marker_selected = { fg = "#FFFF00", bg = "#FFFF00" }
+tab_active      = { fg = "#000000", bg = "#FF007C", bold = true }
+tab_inactive    = { fg = "#00FFFF", bg = "#111111", bold = true }
+tab_width       = 1
+border_symbol   = "│"
+border_style    = { fg = "#FF007C" }
+
+[status]
+separator_open  = ""
+separator_close = ""
+separator_style = { fg = "#000000", bg = "#000000" }
+mode_normal = { fg = "#000000", bg = "#00FF00", bold = true }
+mode_select = { fg = "#000000", bg = "#FFFF00", bold = true }
+mode_unset  = { fg = "#000000", bg = "#FF007C", bold = true }
+progress_label  = { fg = "#00FFFF", bold = true }
+progress_normal = { fg = "#00FF00", bg = "#000000" }
+progress_error  = { fg = "#FF007C", bg = "#000000" }
+perm_type  = { fg = "#FF007C", bold = true }
+perm_read  = { fg = "#00FF00", bold = true }
+perm_write = { fg = "#FFFF00", bold = true }
+perm_exec  = { fg = "#00FFFF", bold = true }
+perm_sep   = { fg = "#FF007C" }
+
+[input]
+border   = { fg = "#FF007C" }
+title    = { fg = "#00FFFF", bold = true }
+value    = { fg = "#FFFF00", bold = true }
+selected = { fg = "#000000", bg = "#00FFFF", bold = true }
+
+[select]
+border   = { fg = "#FF007C" }
+active   = { fg = "#00FF00", bold = true }
+inactive = { fg = "#00FFFF" }
+
+[tasks]
+border  = { fg = "#FF007C" }
+title   = { fg = "#00FFFF", bold = true }
+hovered = { fg = "#FFFF00", bold = true, underline = true }
+
+[which]
+mask            = { bg = "#000000" }
+cand            = { fg = "#00FF00", bold = true }
+rest            = { fg = "#FF007C", bold = true }
+desc            = { fg = "#FFFF00", bold = true }
+separator       = " → "
+separator_style = { fg = "#00FFFF" }
+
+[notify]
+title_info  = { fg = "#00FF00", bold = true }
+title_warn  = { fg = "#FFFF00", bold = true }
+title_error = { fg = "#FF007C", bold = true }
+
+[help]
+on      = { fg = "#00FF00", bold = true }
+run     = { fg = "#FF007C", bold = true }
+desc    = { fg = "#00FFFF", bold = true }
+hovered = { fg = "#000000", bg = "#FF007C", bold = true }
+footer  = { fg = "#000000", bg = "#00FFFF", bold = true }
+
+[filetype]
+rules = [
+  { mime = "image/*",                              fg = "#FF007C", bold = true },
+  { mime = "video/*",                              fg = "#FF007C", bold = true },
+  { mime = "audio/*",                              fg = "#00FFFF", bold = true },
+  { mime = "application/pdf",                      fg = "#FF007C", bold = true },
+  { mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*}", fg = "#FFFF00", bold = true },
+  { mime = "application/json",                     fg = "#FFFF00", bold = true },
+  { mime = "text/x-shellscript",                   fg = "#00FF00", bold = true },
+  { mime = "text/*",                               fg = "#00FFFF", bold = true },
+  { mime = "application/x-executable",             fg = "#00FF00", bold = true },
+  { url = "*/",                                    fg = "#FF007C", bold = true },
+  { url = "*",                                     fg = "#00FFFF", bold = true },
+]

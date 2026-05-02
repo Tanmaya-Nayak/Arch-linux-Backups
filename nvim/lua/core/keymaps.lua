@@ -34,8 +34,6 @@ map("n", "<leader>sc", "<cmd>close<CR>", { desc = "Close split" })
 -- Buffer navigation
 map("n", "<S-h>", "<cmd>bprevious<CR>", { desc = "Prev buffer" })
 map("n", "<S-l>", "<cmd>bnext<CR>", { desc = "Next buffer" })
-map("n", "<leader>bd", "<cmd>bdelete<CR>", { desc = "Delete buffer" })
-map("n", "<leader>bD", "<cmd>bdelete!<CR>", { desc = "Force delete buffer" })
 
 -- Move lines (visual)
 map("v", "J", ":m '>+1<CR>gv=gv", opts)
@@ -72,20 +70,10 @@ map("n", "<leader>o", "<cmd>Neotree focus<CR>", { desc = "Focus explorer" })
 -- ── LSP (set in lsp/init.lua on_attach, listed here for reference) ──
 
 -- ── Terminal ────────────────────────────────────────────────
-map("n", "<leader>tt", "<cmd>ToggleTerm direction=horizontal<CR>", { desc = "Terminal (horizontal)" })
-map("n", "<leader>tf", "<cmd>ToggleTerm direction=float<CR>", { desc = "Terminal (float)" })
 map("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
 -- ── DAP (Debugger) ───────────────────────────────────────────
-map("n", "<leader>db", "<cmd>lua require('dap').toggle_breakpoint()<CR>", { desc = "Toggle breakpoint" })
-map("n", "<leader>dc", "<cmd>lua require('dap').continue()<CR>", { desc = "Continue" })
-map("n", "<leader>di", "<cmd>lua require('dap').step_into()<CR>", { desc = "Step into" })
-map("n", "<leader>do", "<cmd>lua require('dap').step_over()<CR>", { desc = "Step over" })
-map("n", "<leader>dO", "<cmd>lua require('dap').step_out()<CR>", { desc = "Step out" })
-map("n", "<leader>du", "<cmd>lua require('dapui').toggle()<CR>", { desc = "DAP UI" })
-map("n", "<leader>dq", "<cmd>lua require('dap').terminate()<CR>", { desc = "Terminate" })
 
 -- ── Misc ─────────────────────────────────────────────────────
 map("n", "<leader>lz", "<cmd>Lazy<CR>", { desc = "Lazy plugin manager" })
 map("n", "<leader>mm", "<cmd>Mason<CR>", { desc = "Mason LSP installer" })
-map("n", "<leader>gg", "<cmd>LazyGit<CR>", { desc = "LazyGit" })

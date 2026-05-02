@@ -14,34 +14,37 @@ link() {
 }
 
 # ── Configs ──────────────────────────────────────────────────
-link "$DOTFILES/hypr"            ~/.config/hypr
+link "$DOTFILES/hypr" ~/.config/hypr
 echo "✓ hypr"
 
-link "$DOTFILES/waybar"          ~/.config/waybar
+link "$DOTFILES/waybar" ~/.config/waybar
 echo "✓ waybar"
 
-link "$DOTFILES/wofi"            ~/.config/wofi
+link "$DOTFILES/wofi" ~/.config/wofi
 echo "✓ wofi"
 
-link "$DOTFILES/kitty"           ~/.config/kitty
+link "$DOTFILES/kitty" ~/.config/kitty
 echo "✓ kitty"
 
-link "$DOTFILES/nvim"            ~/.config/nvim
+link "$DOTFILES/nvim" ~/.config/nvim
 echo "✓ nvim"
 
-link "$DOTFILES/mako/config"     ~/.config/mako/config
+link "$DOTFILES/mako" ~/.config/mako
 echo "✓ mako"
 
-link "$DOTFILES/btop/btop.conf"  ~/.config/btop/btop.conf
+link "$DOTFILES/btop" ~/.config/btop
 echo "✓ btop"
 
-link "$DOTFILES/fastfetch"       ~/.config/fastfetch
+link "$DOTFILES/fastfetch" ~/.config/fastfetch
 echo "✓ fastfetch"
 
-link "$DOTFILES/yazi/opener.toml" ~/.config/yazi/opener.toml
+link "$DOTFILES/yazi" ~/.config/yazi
 echo "✓ yazi"
 
-link "$DOTFILES/zshrc"           ~/.zshrc
+link "$DOTFILES/gtk-3.0" ~/.config/gtk-3.0
+echo "✓ gtk-3.0"
+
+link "$DOTFILES/zshrc" ~/.zshrc
 [ -f "$DOTFILES/.p10k.zsh" ] && link "$DOTFILES/.p10k.zsh" ~/.p10k.zsh
 echo "✓ zsh"
 

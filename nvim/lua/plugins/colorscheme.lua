@@ -70,13 +70,13 @@ return {
 				vim.api.nvim_set_hl(0, "Special", { fg = "#FF8C00", bold = true })
 				vim.api.nvim_set_hl(0, "SpecialChar", { fg = "#FF8C00", bold = true })
 				-- Black background
-				vim.api.nvim_set_hl(0, "Normal", { bg = "#0d0d0d" })
-				vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#0d0d0d" })
-				vim.api.nvim_set_hl(0, "NormalNC", { bg = "#0d0d0d" })
-				vim.api.nvim_set_hl(0, "SignColumn", { bg = "#0d0d0d" })
-				vim.api.nvim_set_hl(0, "LineNr", { bg = "#0d0d0d" })
-				vim.api.nvim_set_hl(0, "CursorLineNr", { bg = "#0d0d0d" })
-				vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "#0d0d0d" })
+				vim.api.nvim_set_hl(0, "Normal", { bg = "#000000" })
+				vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#000000" })
+				vim.api.nvim_set_hl(0, "NormalNC", { bg = "#000000" })
+				vim.api.nvim_set_hl(0, "SignColumn", { bg = "#000000" })
+				vim.api.nvim_set_hl(0, "LineNr", { bg = "#000000" })
+				vim.api.nvim_set_hl(0, "CursorLineNr", { bg = "#000000" })
+				vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "#000000" })
 				-- LSP semantic token overrides
 				vim.api.nvim_set_hl(0, "@lsp.type.function", { fg = "#00FF00", bold = true })
 				vim.api.nvim_set_hl(0, "@lsp.typemod.function.declaration", { fg = "#00FF00", bold = true })
@@ -102,7 +102,38 @@ return {
 				if ok then
 					lualine.setup({
 						options = {
-							theme = "monokai_pro",
+							theme = {
+								normal = {
+									a = { fg = "#000000", bg = "#FF007C", gui = "bold" }, -- pink
+									b = { fg = "#FFFFFF", bg = "#1a1a1a" },
+									c = { fg = "#AAAAAA", bg = "#000000" },
+								},
+								insert = {
+									a = { fg = "#000000", bg = "#00FF00", gui = "bold" }, -- neon lime
+									b = { fg = "#FFFFFF", bg = "#1a1a1a" },
+									c = { fg = "#AAAAAA", bg = "#000000" },
+								},
+								visual = {
+									a = { fg = "#000000", bg = "#FFFF00", gui = "bold" }, -- neon yellow
+									b = { fg = "#FFFFFF", bg = "#1a1a1a" },
+									c = { fg = "#AAAAAA", bg = "#000000" },
+								},
+								replace = {
+									a = { fg = "#000000", bg = "#FF8C00", gui = "bold" }, -- neon orange
+									b = { fg = "#FFFFFF", bg = "#1a1a1a" },
+									c = { fg = "#AAAAAA", bg = "#000000" },
+								},
+								command = {
+									a = { fg = "#000000", bg = "#00FFFF", gui = "bold" }, -- neon cyan
+									b = { fg = "#FFFFFF", bg = "#1a1a1a" },
+									c = { fg = "#AAAAAA", bg = "#000000" },
+								},
+								inactive = {
+									a = { fg = "#AAAAAA", bg = "#000000" },
+									b = { fg = "#AAAAAA", bg = "#000000" },
+									c = { fg = "#AAAAAA", bg = "#000000" },
+								},
+							},
 							globalstatus = true,
 							component_separators = { left = "", right = "" },
 							section_separators = { left = "", right = "" },
