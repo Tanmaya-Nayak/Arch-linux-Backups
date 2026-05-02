@@ -212,9 +212,10 @@
     "custom/screenshot": {
         "format": "󰄀",
         "tooltip": "Left: Area  |  Right: Fullscreen  |  Mid: Window",
-        "on-click":        "grimblast --notify copy area",
-        "on-click-right":  "grimblast --notify copy screen",
-        "on-click-middle": "grimblast --notify copy active"
+        "on-click":        "grimblast --notify copysave area ~/Pictures/Screenshots/$(date +%Y%m%d_%H%M%S).png",
+        "on-click-right":  "grimblast --notify copysave screen ~/Pictures/Screenshots/$(date +%Y%m%d_%H%M%S).png",
+        "on-click-middle": "grimblast --notify copysave active ~/Pictures/Screenshots/$(date +%Y%m%d_%H%M%S).png"
+
     },
 
     // ─── CUSTOM: LOCK ─────────────────────────────────────────────

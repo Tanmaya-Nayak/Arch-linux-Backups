@@ -1,10 +1,6 @@
 #!/bin/bash
-WALLPAPER_DIR=~/Pictures/catppuccin/landscapes
+pkill swaybg 2>/dev/null
+swaybg -i /home/xstream/Pictures/anime/1345576.jpeg -m fill &
 
-while true; do
-  for img in "$WALLPAPER_DIR"/*; do
-    pkill swaybg
-    swaybg -i "$img" -m fill &
-    sleep 120
-  done
-done
+# Update hyprlock
+sed -i "s|path = .*|path = /home/xstream/Pictures/anime/1345576.jpeg|" ~/.config/hypr/hyprlock.conf

@@ -147,5 +147,17 @@ alias wifion='nmcli radio wifi on'
 alias wifioff='nmcli radio wifi off'
 alias netstat='nmcli connection show --active'
 wificonnect() { nmcli device wifi connect "$1" password "$2"; }
-export PATH="$HOME/.npm-global/bin:$PATH"
-export PATH="$HOME/.npm-global/bin:$PATH"
+
+# ── Zsh Colors ──────────────────────────────────
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#585B70,italic"
+
+ZSH_HIGHLIGHT_STYLES[command]='fg=#89B4FA,bold'
+ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=#F38BA8,bold'
+ZSH_HIGHLIGHT_STYLES[string]='fg=#A6E3A1'
+ZSH_HIGHLIGHT_STYLES[path]='fg=#94E2D5,underline'
+ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=#CBA6F7'
+ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=#CBA6F7'
+ZSH_HIGHLIGHT_STYLES[numeric-literal]='fg=#FAB387'
+ZSH_HIGHLIGHT_STYLES[comment]='fg=#6C7086,italic'
+alias warp-on='warp-cli connect'
+alias warp-off='warp-cli disconnect'
