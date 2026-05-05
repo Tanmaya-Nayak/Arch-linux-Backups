@@ -270,3 +270,8 @@ calendar.day-names {
 calendar.no-month-change button {
     color: rgba(0, 255, 255, 0.25);
 }
+
+/* TRAY */
+#tray { padding: 0 8px; color: #00FFFF; }
+#tray > .passive { -gtk-icon-effect: dim; }
+#tray > .needs-attention { -gtk-icon-effect: highlight; }

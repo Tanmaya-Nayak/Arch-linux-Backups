@@ -21,6 +21,8 @@
     ],
 
     "modules-right": [
+        "tray",
+        "custom/sep",
         "wlr/taskbar",
         "custom/sep",
         "network",

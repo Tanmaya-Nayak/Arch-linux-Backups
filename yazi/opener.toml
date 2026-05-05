@@ -1,34 +1,7 @@
 [opener]
 edit = [
-  { run = 'nvim "$@"', desc = "nvim", block = true },
+  { run = 'nvim "$@"', block = true, desc = "nvim" },
 ]
-view_pdf = [
-  { run = 'zathura "$@"', desc = "zathura", orphan = true },
-]
-view_image = [
-  { run = 'imv "$@"', desc = "imv", orphan = true },
-]
-view_video = [
-  { run = 'mpv "$@"', desc = "mpv", orphan = true },
-]
-
-[open]
-rules = [
-  { mime = "text/*",   use = "edit" },
-  { name = "*.lua",    use = "edit" },
-  { name = "*.py",     use = "edit" },
-  { name = "*.js",     use = "edit" },
-  { name = "*.ts",     use = "edit" },
-  { name = "*.c",      use = "edit" },
-  { name = "*.cpp",    use = "edit" },
-  { name = "*.java",   use = "edit" },
-  { name = "*.sh",     use = "edit" },
-  { name = "*.md",     use = "edit" },
-  { name = "*.toml",   use = "edit" },
-  { name = "*.yaml",   use = "edit" },
-  { name = "*.json",   use = "edit" },
-  { name = "*.pdf",    use = "view_pdf" },
-  { mime = "image/*",  use = "view_image" },
-  { mime = "video/*",  use = "view_video" },
-  { mime = "audio/*",  use = "view_video" },
+pdf = [
+  { run = 'zathura "$@"', orphan = true },
 ]
