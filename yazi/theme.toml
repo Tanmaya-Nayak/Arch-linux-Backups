@@ -1,18 +1,16 @@
-"$schema" = "https://yazi-rs.github.io/schemas/theme.json"
 
 [manager]
 cwd = { fg = "#00FFFF", bold = true }
 hovered         = { fg = "#000000", bg = "#FF007C", bold = true }
 preview_hovered = { fg = "#000000", bg = "#00FFFF", underline = true }
 find_keyword    = { fg = "#FFFF00", bold = true, italic = true, underline = true }
-find_position   = { fg = "#00FF00", bg = "default", bold = true, italic = true }
+find_position   = { fg = "#00FF00", bold = true, italic = true }
 marker_copied   = { fg = "#00FF00", bg = "#00FF00" }
 marker_cut      = { fg = "#FF007C", bg = "#FF007C" }
 marker_marked   = { fg = "#00FFFF", bg = "#00FFFF" }
 marker_selected = { fg = "#FFFF00", bg = "#FFFF00" }
 tab_active      = { fg = "#000000", bg = "#FF007C", bold = true }
 tab_inactive    = { fg = "#00FFFF", bg = "#111111", bold = true }
-tab_width       = 1
 border_symbol   = "│"
 border_style    = { fg = "#FF007C" }
 

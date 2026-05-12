@@ -28,3 +28,45 @@ suppress_preload = false
 [log]
 enabled = false
 
+[opener]
+edit = [
+  { run = 'kitty --start-as=fullscreen nvim "$@"', orphan = true, desc = "nvim" },
+]
+view_pdf = [
+  { run = 'zathura "$@"', orphan = true, desc = "zathura" },
+]
+view_image = [
+  { run = 'imv -f "$@"', orphan = true, desc = "imv" },
+]
+view_video = [
+  { run = 'mpv --fs "$@"', orphan = true, desc = "mpv" },
+]
+extract = [
+  { run = '/home/xstream/.config/yazi/extract.sh "$@"', orphan = false, desc = "unzip" },
+]
+
+[open]
+rules = [
+  { mime = "inode/x-empty", use = "edit" },
+  { url = "*.c",      use = "edit" },
+  { url = "*.cpp",    use = "edit" },
+  { url = "*.py",     use = "edit" },
+  { url = "*.js",     use = "edit" },
+  { url = "*.ts",     use = "edit" },
+  { url = "*.sh",     use = "edit" },
+  { url = "*.md",     use = "edit" },
+  { url = "*.toml",   use = "edit" },
+  { url = "*.json",   use = "edit" },
+  { mime = "text/*",   use = "edit" },
+  { url = "*.pdf",    use = "view_pdf" },
+  { mime = "application/pdf", use = "view_pdf" },
+  { url = "*.mp4",    use = "view_video" },
+  { url = "*.mkv",    use = "view_video" },
+  { url = "*.avi",    use = "view_video" },
+  { url = "*.webm",   use = "view_video" },
+  { mime = "application/zip", use = "extract" },
+  { mime = "image/*",  use = "view_image" },
+  { mime = "video/*",  use = "view_video" },
+  { mime = "audio/*",  use = "view_video" },
+  { mime = "*", use = "edit" },
+]
