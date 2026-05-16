@@ -119,3 +119,4 @@ chsh -s $(which zsh)
 - Battery charge thresholds set to 75-80% for longevity
 - Yazi theme uses 26.x schema format (`"$schema"` field required, `url` instead of `name` in filetype rules)
 - Btop uses custom `neon_black` theme located in `btop/themes/neon_black.theme`
+ 
