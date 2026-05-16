@@ -187,3 +187,25 @@ export FZF_DEFAULT_OPTS="
 # fzf keybinds + completion
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
+
+# ── FZF CRAZY NEON ───────────────────────────────────────────
+export FZF_DEFAULT_OPTS="
+  --color=bg:#000000,bg+:#0D0D0D
+  --color=fg:#00FF00,fg+:#39FF14
+  --color=hl:#FF007C,hl+:#FF00FF
+  --color=border:#00FFFF
+  --color=prompt:#FF007C,pointer:#00FFFF,marker:#FFFF00
+  --color=info:#FF00FF,spinner:#00FFFF,header:#FF007C
+  --color=query:#00FFFF,disabled:#444444
+  --border=double
+  --prompt='⚡ '
+  --pointer='▶'
+  --marker='✦'
+  --height=90%
+  --layout=reverse
+  --info=inline
+  --margin=1
+  --padding=1"
+
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
