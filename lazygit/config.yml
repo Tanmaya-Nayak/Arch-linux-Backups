@@ -1,0 +1,28 @@
+gui:
+  theme:
+    activeBorderColor:
+      - '#FF007C'
+      - bold
+    inactiveBorderColor:
+      - '#222222'
+    optionsTextColor:
+      - '#00FFFF'
+    selectedLineBgColor:
+      - '#0D0D0D'
+    selectedRangeBgColor:
+      - '#1a0010'
+    cherryPickedCommitBgColor:
+      - '#1a0010'
+    cherryPickedCommitFgColor:
+      - '#FF007C'
+    unstagedChangesColor:
+      - '#FF3399'
+    defaultFgColor:
+      - '#00FF00'
+    searchingActiveBorderColor:
+      - '#FFFF00'
+      - bold
+  border: rounded
+  nerdFontsVersion: "3"
+  authorColors:
+    '*': '#FF007C'
