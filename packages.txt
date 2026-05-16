@@ -75,3 +75,4 @@ yazi
 zathura
 zathura-pdf-mupdf
 zsh
+auto-cpufreq
