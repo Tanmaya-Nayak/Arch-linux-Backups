@@ -13,3 +13,5 @@ insensitive=true
 allow_images=true
 image_size=28
 gtk_dark=true
+layer=overlay
+border_radius=12
