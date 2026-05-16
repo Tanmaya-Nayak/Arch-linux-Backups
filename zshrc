@@ -209,3 +209,12 @@ export FZF_DEFAULT_OPTS="
 
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
+
+# ── FZF file preview with bat ─────────────────────────────────
+export FZF_DEFAULT_COMMAND='find . -type f'
+export FZF_CTRL_T_OPTS="
+  --preview 'bat --color=always --style=numbers,changes --line-range=:200 {}'
+  --preview-window=right:60%:wrap"
+
+export FZF_ALT_C_OPTS="
+  --preview 'ls -la --color=always {}'"
