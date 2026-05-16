@@ -167,3 +167,23 @@ cpush() { git add -A && git commit -m "$1" && git push }
 alias cst="git status"
 alias clog="git log --oneline --graph --decorate -10"
 alias cdiff="git diff"
+
+# ── FZF neon theme ───────────────────────────────────────────
+export FZF_DEFAULT_OPTS="
+  --color=bg:#000000,bg+:#0a0a0a
+  --color=fg:#00FF00,fg+:#39FF14
+  --color=hl:#FF007C,hl+:#FF3399
+  --color=border:#00FFFF
+  --color=prompt:#FF007C,pointer:#00FFFF,marker:#FFFF00
+  --color=info:#FFFF00,spinner:#00FF00,header:#00FFFF
+  --border=rounded
+  --prompt='  '
+  --pointer='▶'
+  --marker='✓'
+  --height=80%
+  --layout=reverse
+  --info=inline"
+
+# fzf keybinds + completion
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
