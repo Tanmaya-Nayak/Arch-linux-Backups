@@ -161,3 +161,9 @@ ZSH_HIGHLIGHT_STYLES[numeric-literal]='fg=#FAB387'
 ZSH_HIGHLIGHT_STYLES[comment]='fg=#6C7086,italic'
 alias warp-on='warp-cli connect'
 alias warp-off='warp-cli disconnect'
+
+# ── Xstream CP ──────────────────────────────────
+cpush() { git add -A && git commit -m "$1" && git push }
+alias cst="git status"
+alias clog="git log --oneline --graph --decorate -10"
+alias cdiff="git diff"
