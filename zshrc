@@ -218,3 +218,12 @@ export FZF_CTRL_T_OPTS="
 
 export FZF_ALT_C_OPTS="
   --preview 'ls -la --color=always {}'"
+
+# ── Zoxide (smarter cd) ───────────────────────────────────────
+eval "$(zoxide init zsh)"
+alias cd="z"
+
+# ── Eza (better ls) ───────────────────────────────────────────
+alias ls="eza --icons --color=always --group-directories-first"
+alias ll="eza -la --icons --color=always --group-directories-first --git"
+alias lt="eza --tree --icons --color=always --level=2"
