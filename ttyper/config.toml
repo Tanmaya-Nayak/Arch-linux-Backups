@@ -1,0 +1,9 @@
+[theme]
+correct = "#39FF14"
+incorrect = "#FF007C"
+untyped = "#E040FB"
+cursor_fg = "#000000"
+cursor_bg = "#00FFFF"
+prompt = "#FF007C"
+bg = "#000000"
+background = "#000000"
