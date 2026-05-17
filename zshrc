@@ -231,3 +231,4 @@ alias lt="eza --tree --icons --color=always --level=2"
 # FZF + BAT preview
 alias fp='fzf --preview "bat --color=always --style=numbers {}"'
 alias fv='fzf --preview "bat --color=always --style=numbers {}" | xargs nvim'
+export PATH="$HOME/.cargo/bin:$PATH"
