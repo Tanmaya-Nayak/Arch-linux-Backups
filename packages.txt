@@ -76,3 +76,17 @@ zathura
 zathura-pdf-mupdf
 zsh
 auto-cpufreq
+auto-cpufreq
+bat
+cava
+cbonsai
+chromium
+eza
+fzf
+hyprpaper
+pipes.sh
+playerctl
+polkit-gnome
+portaudio
+tmux
+zoxide
