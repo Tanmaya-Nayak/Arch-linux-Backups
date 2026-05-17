@@ -35,6 +35,9 @@ echo "✓ mako"
 link "$DOTFILES/btop" ~/.config/btop
 echo "✓ btop"
 
+link "$DOTFILES/ttyper" ~/.config/ttyper
+echo "✓ ttyper"
+
 link "$DOTFILES/fastfetch" ~/.config/fastfetch
 echo "✓ fastfetch"
 
@@ -63,6 +66,14 @@ echo "✓ zsh plugins"
 sudo mkdir -p /etc/sddm.conf.d
 sudo cp "$DOTFILES/sddm.conf" /etc/sddm.conf.d/sddm.conf
 echo "✓ sddm"
+
+# ── Cargo packages ────────────────────────────────────────────
+if command -v cargo &>/dev/null; then
+  cargo install ttyper
+  echo "✓ ttyper installed"
+else
+  echo "⚠ cargo not found, skipping ttyper install"
+fi
 
 echo ""
 echo "✅ Done! All configs symlinked."
