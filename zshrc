@@ -1,6 +1,16 @@
 # Fastfetch on shell start
 fastfetch
 
+
+cleanup() {
+  rm -rf ~/.config/discord/Cache ~/.config/discord/Code\ Cache ~/.config/discord/GPUCache ~/.config/discord/logs ~/.config/discord/sentry ~/.config/discord/DawnWebGPUCache ~/.config/discord/DawnGraphiteCache
+  rm -rf ~/.cache/chromium
+  rm -rf ~/.config/chromium/Default/Service\ Worker ~/.config/chromium/Default/GPUCache
+  yay -Sc --noconfirm
+  sudo paccache -rk1
+  echo "done"
+}
+
 # Enable Powerlevel10k instant prompt...
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -232,3 +242,6 @@ alias lt="eza --tree --icons --color=always --level=2"
 alias fp='fzf --preview "bat --color=always --style=numbers {}"'
 alias fv='fzf --preview "bat --color=always --style=numbers {}" | xargs nvim'
 export PATH="$HOME/.cargo/bin:$PATH"
+
+
+
