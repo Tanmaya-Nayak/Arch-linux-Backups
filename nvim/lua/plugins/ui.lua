@@ -73,6 +73,8 @@ return {
 						preview_cutoff = 120,
 					},
 					file_ignore_patterns = { "node_modules", ".git/", "__pycache__", "*.class", "build/", "target/" },
+				color_devicons = true,
+				preview = { treesitter = true },
 					mappings = {
 						i = {
 							["<C-j>"] = actions.move_selection_next,
@@ -106,6 +108,19 @@ return {
 			telescope.setup(opts)
 			telescope.load_extension("fzf")
 			telescope.load_extension("ui-select")
+			-- Neon telescope highlights
+			vim.api.nvim_set_hl(0, "TelescopeBorder",         { fg = "#00FFFF" })
+			vim.api.nvim_set_hl(0, "TelescopePromptBorder",   { fg = "#FF007C" })
+			vim.api.nvim_set_hl(0, "TelescopeResultsBorder",  { fg = "#00FFFF" })
+			vim.api.nvim_set_hl(0, "TelescopePreviewBorder",  { fg = "#FF007C" })
+			vim.api.nvim_set_hl(0, "TelescopePromptTitle",    { fg = "#000000", bg = "#FF007C", bold = true })
+			vim.api.nvim_set_hl(0, "TelescopeResultsTitle",   { fg = "#000000", bg = "#00FFFF", bold = true })
+			vim.api.nvim_set_hl(0, "TelescopePreviewTitle",   { fg = "#000000", bg = "#FF007C", bold = true })
+			vim.api.nvim_set_hl(0, "TelescopeSelection",      { fg = "#39FF14", bg = "#0D0D0D", bold = true })
+			vim.api.nvim_set_hl(0, "TelescopeSelectionCaret", { fg = "#FF007C", bold = true })
+			vim.api.nvim_set_hl(0, "TelescopeMatching",       { fg = "#FFFF00", bold = true })
+			vim.api.nvim_set_hl(0, "TelescopePromptNormal",   { fg = "#00FFFF" })
+			vim.api.nvim_set_hl(0, "TelescopePromptPrefix",   { fg = "#FF007C", bold = true })
 		end,
 	},
 	-- ── Neo-tree ──────────────────────────────────────────────
