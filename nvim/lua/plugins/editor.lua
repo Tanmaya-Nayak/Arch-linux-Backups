@@ -63,7 +63,7 @@ return {
     event = { "BufReadPost", "BufNewFile" },
     opts  = {
       indent  = { char = "│", highlight = "IblIndent" },
-      scope   = { enabled = true, highlight = "IblScope" },
+      scope   = { enabled = false },
       exclude = {
         filetypes = { "help", "alpha", "dashboard", "neo-tree", "Trouble", "lazy", "mason" },
       },

@@ -107,6 +107,8 @@ return {
 				vim.api.nvim_set_hl(0, "LineNr", { bg = "#000000" })
 				vim.api.nvim_set_hl(0, "CursorLineNr", { bg = "#000000" })
 				vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "#000000" })
+				vim.api.nvim_set_hl(0, "IblIndent", { fg = "#000000" })
+				vim.api.nvim_set_hl(0, "IblScope",  { fg = "#000000" })
 				-- LSP semantic token overrides
 				vim.api.nvim_set_hl(0, "@lsp.type.function",             { fg = "#00FF00", bold = true })
 				vim.api.nvim_set_hl(0, "@lsp.type.method",               { fg = "#39FF14", bold = true })
