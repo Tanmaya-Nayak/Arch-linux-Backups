@@ -11,7 +11,7 @@ return {
       "nvim-treesitter/nvim-treesitter-context",
     },
     config = function()
-      require("nvim-treesitter.config").setup({
+      require("nvim-treesitter").setup({
         ensure_installed = {
           "c", "cpp", "java", "python", "bash",
           "lua", "vim", "vimdoc",
