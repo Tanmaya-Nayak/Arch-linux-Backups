@@ -1,6 +1,5 @@
 # xstream dotfiles
 Arch Linux + Hyprland setup. Clone and run install.sh to restore everything.
-
 ## Setup overview
 | Component | Tool |
 |-----------|------|
@@ -23,9 +22,9 @@ Arch Linux + Hyprland setup. Clone and run install.sh to restore everything.
 | Video player | Mpv |
 | Power management | TLP |
 | Cursor | Rose Pine Hyprcursor |
+| Timer / Clock | Peaclock |
 
 ---
-
 ## Theme / Aesthetic
 Pure neon on black across all tools:
 - **Colors:** Hot pink `#FF007C`, Cyan `#00FFFF`, Green `#00FF00`, Yellow `#FFFF00` on pure black `#000000`
@@ -33,40 +32,34 @@ Pure neon on black across all tools:
 - **Kitty:** Pure black background + neon colors
 - **Yazi:** Custom neon theme (Yazi 26.x schema format)
 - **Btop:** Custom `neon_black` theme
+- **Peaclock:** Neon black theme (hot pink digits, cyan colons, yellow date)
 
 ---
-
 ## Fresh install steps
-
 ### 1. Install yay
 ```bash
 sudo pacman -S --needed git base-devel
 git clone https://aur.archlinux.org/yay.git
 cd yay && makepkg -si
 ```
-
 ### 2. Install all packages
 ```bash
 yay -S --needed - < packages.txt
 ```
-
 ### 3. Install Oh My Zsh
 ```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
-
 ### 4. Install Powerlevel10k
 ```bash
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git \
   ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 ```
-
 ### 5. Clone and apply dotfiles
 ```bash
 git clone https://github.com/SuperSai6261/Arch-linux-Backups.git ~/dotfiles
 cd ~/dotfiles && bash install.sh
 ```
-
 ### 6. Install TLP power management
 ```bash
 sudo pacman -S tlp tlp-rdw
@@ -74,17 +67,15 @@ sudo systemctl enable --now tlp
 sudo cp ~/dotfiles/tlp.conf /etc/tlp.conf
 sudo systemctl start tlp
 ```
-
 ### 7. Install cursor theme
 ```bash
 yay -S rose-pine-hyprcursor
 ```
-
 ### 8. Install additional tools
 ```bash
 sudo pacman -S zathura zathura-pdf-mupdf imv mpv brightnessctl
+yay -S peaclock
 ```
-
 ### 9. Start services
 ```bash
 systemctl enable --now bluetooth NetworkManager tlp
@@ -93,7 +84,6 @@ chsh -s $(which zsh)
 ```
 
 ---
-
 ## What install.sh symlinks
 | Source | Destination |
 |--------|-------------|
@@ -106,10 +96,10 @@ chsh -s $(which zsh)
 | btop/ | ~/.config/btop |
 | fastfetch/ | ~/.config/fastfetch |
 | yazi/ | ~/.config/yazi |
+| peaclock/config | ~/.peaclock/config |
 | zshrc | ~/.zshrc |
 
 ---
-
 ## Notes
 - Neovim plugins auto-install on first launch via lazy.nvim
 - Neovim uses nvim 0.11+ native vim.lsp.config (no lspconfig dependency)
@@ -119,4 +109,4 @@ chsh -s $(which zsh)
 - Battery charge thresholds set to 75-80% for longevity
 - Yazi theme uses 26.x schema format (`"$schema"` field required, `url` instead of `name` in filetype rules)
 - Btop uses custom `neon_black` theme located in `btop/themes/neon_black.theme`
- 
+- Peaclock config at `~/.peaclock/config` — neon black theme matching btop/cava
