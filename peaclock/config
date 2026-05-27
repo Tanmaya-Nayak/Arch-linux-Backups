@@ -1,0 +1,8 @@
+style active-bg #FF007C
+style inactive-bg #000000
+style colon-bg #00FFFF
+style active-fg #FF007C
+style inactive-fg #000000
+style colon-fg #00FFFF
+style date #FFFF00
+style background clear

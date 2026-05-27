@@ -44,6 +44,9 @@ echo "✓ fastfetch"
 link "$DOTFILES/yazi" ~/.config/yazi
 echo "✓ yazi"
 
+link "$DOTFILES/peaclock/config" ~/.peaclock/config
+echo "✓ peaclock"
+
 link "$DOTFILES/gtk-3.0" ~/.config/gtk-3.0
 echo "✓ gtk-3.0"
 
