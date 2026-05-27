@@ -84,7 +84,7 @@ return {
         }
       end
 
-      require("dap-python").setup(vim.fn.exepath("debugpy-adapter"))
+      require("dap-python").setup(vim.fn.stdpath("data") .. "/mason/packages/debugpy/venv/bin/python")
 
       local map = function(keys, func, desc)
         vim.keymap.set("n", keys, func, { desc = "DAP: " .. desc })

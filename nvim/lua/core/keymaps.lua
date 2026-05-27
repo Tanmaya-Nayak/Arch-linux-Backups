@@ -95,7 +95,9 @@ local function run_file()
   elseif ft == "cpp" then
     cmd = string.format("cd '%s' && g++ -std=c++17 '%s' -o '%s' && ./'%s'", dir, file, fname, fname)
   elseif ft == "python" then
-    cmd = string.format("cd %s && python3 %s", dir, file)
+    local venv = vim.fn.finddir(".venv", dir .. ";")
+    local python = (venv ~= "" and (venv .. "/bin/python")) or "python3"
+    cmd = string.format("cd '%s' && '%s' '%s'", dir, python, file)
   elseif ft == "java" then
     cmd = string.format("cd %s && javac %s && java %s", dir, file, fname)
   elseif ft == "javascript" then

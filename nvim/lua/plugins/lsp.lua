@@ -44,8 +44,18 @@ return {
       "williamboman/mason-lspconfig.nvim",
       "hrsh7th/cmp-nvim-lsp",
     },
-    config = function()
+    config       = function()
       require("lsp")
     end,
+  },
+  {
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    dependencies = { "williamboman/mason.nvim" },
+    opts = {
+      ensure_installed = {
+        "black", "isort", "flake8",
+        "stylua", "shfmt", "clang-format",
+      },
+    },
   },
 }
