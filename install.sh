@@ -44,6 +44,12 @@ echo "✓ fastfetch"
 link "$DOTFILES/yazi" ~/.config/yazi
 echo "✓ yazi"
 
+link "$DOTFILES/cava" ~/.config/cava
+echo "✓ cava"
+
+link "$DOTFILES/lazygit" ~/.config/lazygit
+echo "✓ lazygit"
+
 link "$DOTFILES/peaclock/config" ~/.peaclock/config
 echo "✓ peaclock"
 
