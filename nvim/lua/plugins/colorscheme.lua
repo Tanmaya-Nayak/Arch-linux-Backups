@@ -100,7 +100,7 @@ return {
 				vim.api.nvim_set_hl(0, "CursorReplace", { fg = "#000000", bg = "#FF8C00" })
 				vim.api.nvim_set_hl(0, "CursorLine", { bg = "#0a0a0a" })
 				-- Black background
-				vim.api.nvim_set_hl(0, "Normal", { bg = "#000000" })
+				vim.api.nvim_set_hl(0, "Normal", { bg = "#000000", fg = "#E040FB" })
 				vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#000000" })
 				vim.api.nvim_set_hl(0, "NormalNC", { bg = "#000000" })
 				vim.api.nvim_set_hl(0, "SignColumn", { bg = "#000000" })
@@ -131,14 +131,131 @@ return {
 				vim.api.nvim_set_hl(0, "@lsp.type.macro", { fg = "#FF1744", bold = true })
 				vim.api.nvim_set_hl(0, "@lsp.type.decorator", { fg = "#FF007C", bold = true, italic = true })
 				vim.api.nvim_set_hl(0, "@lsp", { bold = true })
+				-- ── Python-specific: stop pyright semantic tokens from overriding ──────
+				-- Builtins: True, False, None
+				vim.api.nvim_set_hl(0, "@lsp.typemod.variable.defaultLibrary.python", { fg = "#FF4081", bold = true })
+				vim.api.nvim_set_hl(0, "@lsp.typemod.variable.defaultLibrary", { fg = "#FF4081", bold = true })
+				-- print, len, range, type etc (builtin functions)
+				vim.api.nvim_set_hl(
+					0,
+					"@lsp.typemod.function.defaultLibrary.python",
+					{ fg = "#76FF03", bold = true, italic = true }
+				)
+				vim.api.nvim_set_hl(
+					0,
+					"@lsp.typemod.function.defaultLibrary",
+					{ fg = "#76FF03", bold = true, italic = true }
+				)
+				-- import / from keywords
+				vim.api.nvim_set_hl(0, "@lsp.type.keyword.python", { fg = "#FF007C", bold = true, italic = true })
+				-- variables (local, params etc)
+				vim.api.nvim_set_hl(0, "@lsp.type.variable.python", { fg = "#E040FB" })
+				vim.api.nvim_set_hl(0, "@lsp.typemod.variable.python", { fg = "#E040FB" })
+				-- parameters
+				vim.api.nvim_set_hl(0, "@lsp.type.parameter.python", { fg = "#FF6B35", bold = true })
+				-- class names
+				vim.api.nvim_set_hl(0, "@lsp.type.class.python", { fg = "#00E5FF", bold = true })
+				-- decorators (@something)
+				vim.api.nvim_set_hl(0, "@lsp.type.decorator.python", { fg = "#FF007C", bold = true, italic = true })
+				-- self keyword
+				vim.api.nvim_set_hl(
+					0,
+					"@lsp.typemod.selfParameter.python",
+					{ fg = "#EA80FC", bold = true, italic = true }
+				)
+				vim.api.nvim_set_hl(0, "@variable.builtin", { fg = "#EA80FC", bold = true, italic = true })
+				-- module/namespace (import os → os is namespace)
+				vim.api.nvim_set_hl(0, "@lsp.type.namespace.python", { fg = "#18FFFF", bold = true, italic = true })
+				-- string overrides for python
+				vim.api.nvim_set_hl(0, "@string.python", { fg = "#FFFF00", bold = true })
+				-- boolean treesitter node (True/False/None)
+				vim.api.nvim_set_hl(0, "@boolean.python", { fg = "#FF4081", bold = true })
+				vim.api.nvim_set_hl(0, "@constant.builtin.python", { fg = "#FF4081", bold = true, italic = true })
+				-- keywords: for, while, if, else, import, from, with, as, return
+				vim.api.nvim_set_hl(0, "@keyword.python", { fg = "#FF007C", bold = true, italic = true })
+				vim.api.nvim_set_hl(0, "@keyword.import.python", { fg = "#FF007C", bold = true, italic = true })
+				vim.api.nvim_set_hl(0, "@keyword.control.python", { fg = "#FF007C", bold = true, italic = true })
+				-- ── Fix legacy vim syntax groups for Python ─────────────────
+				vim.api.nvim_set_hl(0, "pythonBoolean", { fg = "#FF4081", bold = true }) -- True, False
+				vim.api.nvim_set_hl(0, "pythonNone", { fg = "#FF4081", bold = true, italic = true }) -- None
+				vim.api.nvim_set_hl(0, "pythonBuiltin", { fg = "#76FF03", bold = true, italic = true }) -- print, len, range
+				vim.api.nvim_set_hl(0, "pythonStatement", { fg = "#FF007C", bold = true, italic = true }) -- import, from, return
+				vim.api.nvim_set_hl(0, "pythonRepeat", { fg = "#FF007C", bold = true, italic = true }) -- for, while
+				vim.api.nvim_set_hl(0, "pythonConditional", { fg = "#FF007C", bold = true, italic = true }) -- if, elif, else
+				vim.api.nvim_set_hl(0, "pythonException", { fg = "#FF1744", bold = true, italic = true }) -- try, except, raise
+				vim.api.nvim_set_hl(0, "pythonOperator", { fg = "#FF69B4", bold = true }) -- and, or, not, in, is
+				vim.api.nvim_set_hl(0, "pythonDecorator", { fg = "#FF007C", bold = true, italic = true }) -- @decorator
+				vim.api.nvim_set_hl(0, "pythonString", { fg = "#FFFF00", bold = true }) -- strings
+				vim.api.nvim_set_hl(0, "pythonNumber", { fg = "#FF8C00", bold = true }) -- numbers
+				vim.api.nvim_set_hl(0, "pythonClass", { fg = "#00E5FF", bold = true }) -- class names
+				vim.api.nvim_set_hl(0, "pythonSelf", { fg = "#EA80FC", bold = true, italic = true }) -- self
+				vim.api.nvim_set_hl(0, "pythonFunction", { fg = "#00FF00", bold = true }) -- def funcname
+				vim.api.nvim_set_hl(0, "pythonComment", { fg = "#546E7A", italic = true }) -- comments
+
+				vim.api.nvim_set_hl(0, "IlluminatedWordText", { underline = true, sp = "#444444" })
+				vim.api.nvim_set_hl(0, "IlluminatedWordRead", { underline = true, sp = "#444444" })
+				vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { underline = true, sp = "#444444" })
+				vim.api.nvim_set_hl(0, "pythonBuiltin", { fg = "#76FF03", bold = true, italic = true })
+				-- ── Break pythonIdentifier → Function link ──────────────────
+				vim.api.nvim_set_hl(0, "pythonIdentifier", { fg = "#E040FB" }) -- variables = purple
+				vim.api.nvim_set_hl(0, "pythonBuiltin", { fg = "#76FF03", bold = true, italic = true }) -- print,len = lime
+				-- ── Fix remaining Python token colors ───────────────────────
+				vim.api.nvim_set_hl(0, "pythonClass", { fg = "#00E5FF", bold = true })
+				vim.api.nvim_set_hl(0, "pythonBoolean", { fg = "#FF4081", bold = true })
+				vim.api.nvim_set_hl(0, "pythonNone", { fg = "#FF4081", bold = true, italic = true })
+				vim.api.nvim_set_hl(0, "pythonOperator", { fg = "#FF69B4", bold = true })
+				vim.api.nvim_set_hl(0, "pythonStatement", { fg = "#FF007C", bold = true, italic = true })
+				vim.api.nvim_set_hl(0, "pythonRepeat", { fg = "#FF007C", bold = true, italic = true })
+				vim.api.nvim_set_hl(0, "pythonConditional", { fg = "#FF007C", bold = true, italic = true })
+				vim.api.nvim_set_hl(0, "pythonException", { fg = "#FF1744", bold = true, italic = true })
+				vim.api.nvim_set_hl(0, "pythonAsync", { fg = "#FF007C", bold = true, italic = true })
+				-- Type hints: str, int, float etc
+				vim.api.nvim_set_hl(0, "pythonType", { fg = "#00FFFF", bold = true })
+				vim.api.nvim_set_hl(0, "@type.builtin.python", { fg = "#18FFFF", bold = true, italic = true })
+				vim.api.nvim_set_hl(0, "@keyword.modifier.python", { fg = "#FF007C", bold = true, italic = true })
+				vim.api.nvim_set_hl(0, "pythonNone", { fg = "#FF4081", bold = true, italic = true })
+				vim.api.nvim_set_hl(0, "@constant.builtin.python", { fg = "#FF4081", bold = true, italic = true })
+				vim.api.nvim_set_hl(0, "pythonType", { fg = "#00FFFF", bold = true })
+				vim.api.nvim_set_hl(0, "@type.builtin.python", { fg = "#00FFFF", bold = true })
+				vim.api.nvim_set_hl(0, "pythonBuiltinType", { fg = "#00FFFF", bold = true })
+				vim.api.nvim_set_hl(0, "pythonConstant", { fg = "#FF4081", bold = true, italic = true })
+				vim.api.nvim_set_hl(0, "@type.builtin.python", { fg = "#00FFFF", bold = true })
+				vim.api.nvim_set_hl(0, "@type.python", { fg = "#00FFFF", bold = true })
+				vim.api.nvim_set_hl(0, "@lsp.type.type.python", { fg = "#00FFFF", bold = true })
+				vim.api.nvim_set_hl(0, "@lsp.type.class.python", { fg = "#00E5FF", bold = true })
+				vim.api.nvim_set_hl(0, "PythonTypeHL", { fg = "#00FFFF", bold = true })
+				vim.api.nvim_set_hl(0, "pythonBuiltinType", { fg = "#00FFFF", bold = true })
 			end
 
-			set_highlights()
+			-- Run immediately with a delay so monokai finishes first
+			vim.defer_fn(set_highlights, 50)
 
+			-- Also re-run after any colorscheme change
 			vim.api.nvim_create_autocmd("ColorScheme", {
-				callback = set_highlights,
+				callback = function()
+					vim.defer_fn(set_highlights, 50)
+				end,
 			})
 
+			vim.api.nvim_create_autocmd("FileType", {
+				pattern = "python",
+				callback = function()
+					vim.defer_fn(function()
+						set_highlights()
+						vim.api.nvim_set_hl(0, "pythonIdentifier", { fg = "#E040FB" })
+						vim.api.nvim_set_hl(0, "pythonBuiltin", { fg = "#76FF03", bold = true, italic = true })
+						vim.api.nvim_set_hl(0, "pythonBoolean", { fg = "#FF4081", bold = true })
+						vim.api.nvim_set_hl(0, "pythonNone", { fg = "#FF4081", bold = true, italic = true })
+						vim.api.nvim_set_hl(0, "pythonConstant", { fg = "#FF4081", bold = true, italic = true })
+						vim.api.nvim_set_hl(0, "@type.builtin.python", { fg = "#00FFFF", bold = true })
+						vim.api.nvim_set_hl(0, "@type.python", { fg = "#00FFFF", bold = true })
+						vim.api.nvim_set_hl(0, "@lsp.type.type.python", { fg = "#00FFFF", bold = true })
+						vim.api.nvim_set_hl(0, "@lsp.type.class.python", { fg = "#00E5FF", bold = true })
+						vim.api.nvim_set_hl(0, "PythonTypeHL", { fg = "#00FFFF", bold = true })
+						vim.api.nvim_set_hl(0, "pythonBuiltinType", { fg = "#00FFFF", bold = true })
+					end, 200)
+				end,
+			})
 			vim.defer_fn(function()
 				local ok, lualine = pcall(require, "lualine")
 				if ok then

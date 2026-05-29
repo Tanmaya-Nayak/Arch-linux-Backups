@@ -249,16 +249,30 @@ return {
 	{
 		"RRethy/vim-illuminate",
 		event = { "BufReadPost", "BufNewFile" },
-		opts = {
-			delay = 200,
-			large_file_cutoff = 2000,
-			large_file_overrides = { providers = { "lsp" } },
-		},
-		config = function(_, opts)
-			require("illuminate").configure(opts)
+		config = function()
+			require("illuminate").configure({
+				delay = 200,
+				large_file_cutoff = 2000,
+				large_file_overrides = { providers = { "lsp" } },
+				-- disable all highlight providers except lsp references
+				providers = { "lsp", "treesitter", "regex" },
+			})
+
+			-- Nuke illuminate highlights completely — no fg, no bg, just bold underline
+			vim.api.nvim_set_hl(0, "IlluminatedWordText", { bold = true, underline = true, sp = "#444444" })
+			vim.api.nvim_set_hl(0, "IlluminatedWordRead", { bold = true, underline = true, sp = "#444444" })
+			vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { bold = true, underline = true, sp = "#444444" })
+
+			-- illuminate resets highlights on every BufEnter — fight it
+			vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter", "WinEnter", "CmdwinEnter", "ColorScheme" }, {
+				callback = function()
+					vim.api.nvim_set_hl(0, "IlluminatedWordText", { bold = true, underline = true, sp = "#444444" })
+					vim.api.nvim_set_hl(0, "IlluminatedWordRead", { bold = true, underline = true, sp = "#444444" })
+					vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { bold = true, underline = true, sp = "#444444" })
+				end,
+			})
 		end,
 	},
-
 	-- ── Smooth Scrolling ──────────────────────────────────────
 	{
 		"karb94/neoscroll.nvim",
