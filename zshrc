@@ -3,12 +3,29 @@ fastfetch
 
 
 cleanup() {
-  rm -rf ~/.config/discord/Cache ~/.config/discord/Code\ Cache ~/.config/discord/GPUCache ~/.config/discord/logs ~/.config/discord/sentry ~/.config/discord/DawnWebGPUCache ~/.config/discord/DawnGraphiteCache
+  echo "Cleaning Discord..."
+  rm -rf ~/.config/discord/{Cache,"Code Cache",GPUCache,logs,sentry,DawnWebGPUCache,DawnGraphiteCache}
+
+  echo "Cleaning Chromium..."
   rm -rf ~/.cache/chromium
-  rm -rf ~/.config/chromium/Default/Service\ Worker ~/.config/chromium/Default/GPUCache
+  rm -rf ~/.config/chromium/Default/{Service\ Worker,GPUCache}
+
+  echo "Cleaning Firefox cache..."
+  rm -rf ~/.cache/mozilla/*
+
+  echo "Cleaning JetBrains cache..."
+  rm -rf ~/.cache/JetBrains/*
+
+  echo "Cleaning Mesa shader cache..."
+  rm -rf ~/.cache/mesa_shader_cache/*
+
+  echo "Cleaning yay cache..."
   yay -Sc --noconfirm
+
+  echo "Cleaning pacman cache..."
   sudo paccache -rk1
-  echo "done"
+
+  echo "Done."
 }
 
 # Enable Powerlevel10k instant prompt...
@@ -243,5 +260,9 @@ alias fp='fzf --preview "bat --color=always --style=numbers {}"'
 alias fv='fzf --preview "bat --color=always --style=numbers {}" | xargs nvim'
 export PATH="$HOME/.cargo/bin:$PATH"
 
-
+# Force block cursor after every prompt
+_fix_cursor() { echo -ne '\e[2 q' }
+precmd_hooks+=(_fix_cursor)
+zle-line-init() { echo -ne '\e[2 q' }
+zle -N zle-line-init
 
