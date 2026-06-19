@@ -20,8 +20,8 @@ echo "✓ hypr"
 link "$DOTFILES/waybar" ~/.config/waybar
 echo "✓ waybar"
 
-link "$DOTFILES/wofi" ~/.config/wofi
-echo "✓ wofi"
+link "$DOTFILES/rofi" ~/.config/rofi
+echo "✓ rofi"
 
 link "$DOTFILES/kitty" ~/.config/kitty
 echo "✓ kitty"

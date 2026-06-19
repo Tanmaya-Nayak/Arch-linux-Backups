@@ -1,0 +1,92 @@
+configuration {
+    modi: "drun,run,window";
+    show-icons: true;
+    icon-theme: "Papirus";
+    drun-display-format: "{name}";
+    font: "JetBrainsMono Nerd Font 14";
+    display-drun: "Search...";
+}
+
+@theme "/dev/null"
+
+* {
+    bg:        #000000;
+    bg-alt:    #0D0D0D;
+    fg:        #00FF00;
+    pink:      #FF007C;
+    cyan:      #00FFFF;
+    sel-bg:    #1a0010;
+
+    background-color: transparent;
+    text-color: @fg;
+}
+
+window {
+    width: 600px;
+    height: 400px;
+    location: center;
+    background-color: @bg;
+    border: 4px;
+    border-color: @pink;
+    border-radius: 12px;
+}
+
+mainbox {
+    background-color: @bg;
+    padding: 8px;
+    children: [ inputbar, listview ];
+}
+
+inputbar {
+    background-color: @bg-alt;
+    text-color: @fg;
+    border: 2px;
+    border-color: @pink;
+    border-radius: 8px;
+    padding: 8px 12px;
+    margin: 0 0 8px 0;
+}
+
+entry {
+    background-color: transparent;
+    text-color: @fg;
+    placeholder: "Search...";
+    placeholder-color: @fg;
+}
+
+prompt {
+    background-color: transparent;
+    text-color: @cyan;
+}
+
+listview {
+    background-color: @bg;
+    spacing: 4px;
+    margin: 4px;
+    lines: 8;
+    cycle: true;
+}
+
+element {
+    background-color: transparent;
+    text-color: @fg;
+    border-radius: 8px;
+    padding: 6px;
+}
+
+element selected {
+    background-color: @sel-bg;
+    text-color: @pink;
+    border: 2px;
+    border-color: @pink;
+    border-radius: 8px;
+}
+
+element-icon {
+    size: 28px;
+    vertical-align: 0.5;
+}
+
+element-text {
+    vertical-align: 0.5;
+}
