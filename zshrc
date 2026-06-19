@@ -32,9 +32,9 @@ cleanup() {
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+# fi
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
@@ -49,7 +49,7 @@ alias clear='clear && fastfetch'
 # load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
+ZSH_THEME=""
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -144,8 +144,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # ── Wayland / Hyprland ──────────────────────────
 export WAYLAND_DISPLAY=wayland-1
@@ -176,10 +176,10 @@ alias netstat='nmcli connection show --active'
 wificonnect() { nmcli device wifi connect "$1" password "$2"; }
 
 # ── Zsh Colors ──────────────────────────────────
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#585B70,italic"
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#FF0000,bold"
 
-ZSH_HIGHLIGHT_STYLES[command]='fg=#89B4FA,bold'
-ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=#F38BA8,bold'
+ZSH_HIGHLIGHT_STYLES[command]='fg=#39FF14,bold,underline'
+ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=#FF0000,bold'
 ZSH_HIGHLIGHT_STYLES[string]='fg=#A6E3A1'
 ZSH_HIGHLIGHT_STYLES[path]='fg=#94E2D5,underline'
 ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=#CBA6F7'
@@ -266,3 +266,7 @@ precmd_hooks+=(_fix_cursor)
 zle-line-init() { echo -ne '\e[2 q' }
 zle -N zle-line-init
 
+ZSH_HIGHLIGHT_STYLES[builtin]='fg=#39FF14,bold,underline'
+ZSH_HIGHLIGHT_STYLES[builtin]='fg=#39FF14,bold,underline'
+ZSH_HIGHLIGHT_STYLES[alias]='fg=#39FF14,bold,underline'
+eval "$(starship init zsh)"

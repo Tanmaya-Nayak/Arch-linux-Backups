@@ -57,7 +57,8 @@ link "$DOTFILES/gtk-3.0" ~/.config/gtk-3.0
 echo "✓ gtk-3.0"
 
 link "$DOTFILES/zshrc" ~/.zshrc
-[ -f "$DOTFILES/.p10k.zsh" ] && link "$DOTFILES/.p10k.zsh" ~/.p10k.zsh
+# [ -f "$DOTFILES/.p10k.zsh" ] && link "$DOTFILES/.p10k.zsh" ~/.p10k.zsh
+link "$DOTFILES/starship/starship.toml" ~/.config/starship.toml
 echo "✓ zsh"
 
 # ── Zsh plugins ───────────────────────────────────────────────
