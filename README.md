@@ -5,10 +5,10 @@ Arch Linux + Hyprland setup. Clone and run install.sh to restore everything.
 |-----------|------|
 | WM | Hyprland |
 | Bar | Waybar |
-| Launcher | Wofi |
+| Launcher | Rofi (wayland) |
 | Terminal | Kitty |
 | Editor | Neovim |
-| Shell | Zsh + Oh My Zsh + Powerlevel10k |
+| Shell | Zsh + Oh My Zsh + Starship |
 | Notifications | Mako |
 | Clipboard | cliphist + wl-clipboard |
 | Bluetooth | Blueman |
@@ -50,10 +50,9 @@ yay -S --needed - < packages.txt
 ```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
-### 4. Install Powerlevel10k
+### 4. Install Starship
 ```bash
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git \
-  ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+curl -sS https://starship.rs/install.sh | sh
 ```
 ### 5. Clone and apply dotfiles
 ```bash
@@ -89,7 +88,8 @@ chsh -s $(which zsh)
 |--------|-------------|
 | hypr/ | ~/.config/hypr |
 | waybar/ | ~/.config/waybar |
-| wofi/ | ~/.config/wofi |
+| rofi/ | ~/.config/rofi |
+| starship/starship.toml | ~/.config/starship.toml |
 | kitty/ | ~/.config/kitty |
 | nvim/ | ~/.config/nvim |
 | mako/config | ~/.config/mako/config |
