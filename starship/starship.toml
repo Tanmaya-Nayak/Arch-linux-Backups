@@ -1,5 +1,5 @@
 format = """
-[┌─](bold #FF007C)$os$username[ in ](bold #FF007C)$hostname$directory$git_branch$git_status$git_metrics$c$python$nodejs$rust$golang$java$docker_context
+[┌─](bold #FF007C)$os$username[ in ](bold #00FFFF)$hostname$directory$git_branch$git_status$git_metrics$c$python$nodejs$rust$golang$java$docker_context
 [└─](bold #00FFFF)$status$jobs$character"""
 
 right_format = """$cmd_duration$time"""
@@ -24,17 +24,19 @@ format = "[@$hostname]($style) "
 style = "bold #00FFFF"
 
 [directory]
-style = "bold #00FF00"
+style = "bold #00FFFF"
 format = "[$path]($style) "
 truncation_length = 3
 truncate_to_repo = true
 read_only = " 󰌾"
 read_only_style = "bold #FF0000"
+repo_root_style = "bold #00FF00"
+repo_root_format = "[$repo_root]($repo_root_style)[ 󰁔 $path]($style) "
 
 [git_branch]
 symbol = " "
 style = "bold #FF007C"
-format = "on [$symbol$branch]($style) "
+format = "[on ](bold #00FFFF)[$symbol$branch]($style) "
 
 [git_status]
 style = "bold #00FFFF"
