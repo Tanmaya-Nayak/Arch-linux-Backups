@@ -1,0 +1,13 @@
+live = false
+infinite = false
+screensaver = false
+printTree = true
+verbosity = 0
+lifeStart = 32
+multiplier = 5
+baseType = 1
+seed = 0
+leavesSize = 0
+save = false
+load = false
+verbose = false
