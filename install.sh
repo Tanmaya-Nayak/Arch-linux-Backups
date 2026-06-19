@@ -74,7 +74,7 @@ echo "✓ zsh plugins"
 
 # ── SDDM ─────────────────────────────────────────────────────
 sudo mkdir -p /etc/sddm.conf.d
-sudo cp "$DOTFILES/sddm.conf" /etc/sddm.conf.d/sddm.conf
+sudo cp "$DOTFILES/theme.conf" /etc/sddm.conf.d/theme.conf
 echo "✓ sddm"
 
 # ── Cargo packages ────────────────────────────────────────────
