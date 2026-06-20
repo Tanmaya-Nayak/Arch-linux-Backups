@@ -1,9 +1,10 @@
 #!/bin/bash
 set -e
+
 DOTFILES="$(cd "$(dirname "$0")" && pwd)"
 echo "Installing dotfiles from $DOTFILES..."
 
-# Helper: remove existing and create symlink
+# ── Helper: remove existing and create symlink ─────────────────
 link() {
   local src="$1"
   local dst="$2"
@@ -13,49 +14,59 @@ link() {
   ln -s "$src" "$dst"
 }
 
+# ── Packages: native (pacman) ───────────────────────────────────
+if [ -f "$DOTFILES/packages-native.txt" ]; then
+  echo "Installing native packages..."
+  sudo pacman -S --needed --noconfirm - <"$DOTFILES/packages-native.txt"
+  echo "✓ native packages"
+fi
+
+# ── Packages: yay bootstrap (if missing) ────────────────────────
+if ! command -v yay &>/dev/null; then
+  echo "yay not found, bootstrapping..."
+  tmpdir=$(mktemp -d)
+  git clone https://aur.archlinux.org/yay.git "$tmpdir/yay"
+  (cd "$tmpdir/yay" && makepkg -si --noconfirm)
+  rm -rf "$tmpdir"
+  echo "✓ yay bootstrapped"
+fi
+
+# ── Packages: AUR (yay) ──────────────────────────────────────────
+if [ -f "$DOTFILES/packages-aur.txt" ]; then
+  echo "Installing AUR packages..."
+  yay -S --needed --noconfirm - <"$DOTFILES/packages-aur.txt"
+  echo "✓ AUR packages"
+fi
+
 # ── Configs ──────────────────────────────────────────────────
 link "$DOTFILES/hypr" ~/.config/hypr
 echo "✓ hypr"
-
 link "$DOTFILES/waybar" ~/.config/waybar
 echo "✓ waybar"
-
 link "$DOTFILES/rofi" ~/.config/rofi
 echo "✓ rofi"
-
 link "$DOTFILES/kitty" ~/.config/kitty
 echo "✓ kitty"
-
 link "$DOTFILES/nvim" ~/.config/nvim
 echo "✓ nvim"
-
 link "$DOTFILES/mako" ~/.config/mako
 echo "✓ mako"
-
 link "$DOTFILES/btop" ~/.config/btop
 echo "✓ btop"
-
 link "$DOTFILES/ttyper" ~/.config/ttyper
 echo "✓ ttyper"
-
 link "$DOTFILES/fastfetch" ~/.config/fastfetch
 echo "✓ fastfetch"
-
 link "$DOTFILES/yazi" ~/.config/yazi
 echo "✓ yazi"
-
 link "$DOTFILES/cava" ~/.config/cava
 echo "✓ cava"
-
 link "$DOTFILES/lazygit" ~/.config/lazygit
 echo "✓ lazygit"
-
 link "$DOTFILES/peaclock/config" ~/.peaclock/config
 echo "✓ peaclock"
-
 link "$DOTFILES/gtk-3.0" ~/.config/gtk-3.0
 echo "✓ gtk-3.0"
-
 link "$DOTFILES/zshrc" ~/.zshrc
 # [ -f "$DOTFILES/.p10k.zsh" ] && link "$DOTFILES/.p10k.zsh" ~/.p10k.zsh
 link "$DOTFILES/starship/starship.toml" ~/.config/starship.toml
@@ -77,6 +88,21 @@ sudo mkdir -p /etc/sddm.conf.d
 sudo cp "$DOTFILES/theme.conf" /etc/sddm.conf.d/theme.conf
 echo "✓ sddm"
 
+# ── TLP ──────────────────────────────────────────────────────
+if [ -f "$DOTFILES/tlp.conf" ]; then
+  sudo cp "$DOTFILES/tlp.conf" /etc/tlp.conf
+  sudo systemctl enable --now tlp.service
+  echo "✓ tlp"
+fi
+
+# ── RyzenAdj power limit service ────────────────────────────
+if [ -f "$DOTFILES/ryzenadj.service" ]; then
+  sudo cp "$DOTFILES/ryzenadj.service" /etc/systemd/system/ryzenadj.service
+  sudo systemctl daemon-reload
+  sudo systemctl enable --now ryzenadj.service
+  echo "✓ ryzenadj"
+fi
+
 # ── Cargo packages ────────────────────────────────────────────
 if command -v cargo &>/dev/null; then
   cargo install ttyper
@@ -86,6 +112,6 @@ else
 fi
 
 echo ""
-echo "✅ Done! All configs symlinked."
+echo "✅ Done! All configs symlinked, packages installed, services enabled."
 echo "Reboot or restart Hyprland to apply changes."
 echo "Neovim plugins will auto-install on first launch."
