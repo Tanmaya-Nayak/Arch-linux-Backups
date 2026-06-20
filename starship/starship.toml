@@ -1,5 +1,5 @@
 format = """
-[┌─](bold #FF007C)$os$username[ in ](bold #00FFFF)$hostname$directory$git_branch$git_status$git_metrics$c$python$nodejs$rust$golang$java$docker_context
+[┌─](bold #FF007C)$os$username[ in ](bold #00FFFF)$hostname$directory$git_branch$git_status$git_metrics$c$python$nodejs$rust$golang$java$docker_context$kubernetes$terraform$aws$php$ruby$lua
 [└─](bold #00FFFF)$status$jobs$character"""
 
 right_format = """$cmd_duration$time"""
@@ -129,3 +129,34 @@ discharging_symbol = "💀 "
 [[battery.display]]
 threshold = 30
 style = "bold #FF0000"
+
+[kubernetes]
+disabled = false
+symbol = "☸ "
+style = "bold #00FFFF"
+format = "via [$symbol$context]($style) "
+
+[terraform]
+symbol = "󱁢 "
+style = "bold #FF007C"
+format = "via [$symbol$workspace]($style) "
+
+[aws]
+symbol = "  "
+style = "bold #FFFF00"
+format = "via [$symbol$profile]($style) "
+
+[php]
+symbol = " "
+style = "bold #00FFFF"
+format = "via [$symbol$version]($style) "
+
+[ruby]
+symbol = " "
+style = "bold #FF0000"
+format = "via [$symbol$version]($style) "
+
+[lua]
+symbol = " "
+style = "bold #00FF00"
+format = "via [$symbol$version]($style) "

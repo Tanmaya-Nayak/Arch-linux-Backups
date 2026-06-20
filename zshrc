@@ -270,3 +270,4 @@ ZSH_HIGHLIGHT_STYLES[builtin]='fg=#39FF14,bold,underline'
 ZSH_HIGHLIGHT_STYLES[builtin]='fg=#39FF14,bold,underline'
 ZSH_HIGHLIGHT_STYLES[alias]='fg=#39FF14,bold,underline'
 eval "$(starship init zsh)"
+alias bonsai='cbonsai -li -t 0.03 -w 4 -L 32 -M 5 -b 1 -k 46,201,82,51'
