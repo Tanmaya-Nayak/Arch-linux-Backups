@@ -51,6 +51,8 @@ return {
 				vim.api.nvim_set_hl(0, "@constant.macro", { fg = "#FF1744", bold = true })
 				-- Boolean — neon rose
 				vim.api.nvim_set_hl(0, "@boolean", { fg = "#FF4081", bold = true })
+				vim.api.nvim_set_hl(0, "cppBoolean", { fg = "#FF4081", bold = true })
+				vim.api.nvim_set_hl(0, "Boolean", { fg = "#FF4081", bold = true })
 				-- Operators — hot pink (distinct from cyan)
 				vim.api.nvim_set_hl(0, "@operator", { fg = "#FF69B4", bold = true })
 				-- Punctuation — cool grey

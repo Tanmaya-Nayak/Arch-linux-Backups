@@ -274,3 +274,4 @@ alias bonsai='cbonsai -li -t 0.03 -w 4 -L 32 -M 5 -b 1 -k 46,201,82,51'
 alias webui-stop="docker stop open-webui"
 alias webui-start="docker start open-webui"
 alias webui-status="docker ps -a --filter name=open-webui"
+stty quit undef
