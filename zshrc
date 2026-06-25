@@ -275,3 +275,4 @@ alias webui-stop="docker stop open-webui"
 alias webui-start="docker start open-webui"
 alias webui-status="docker ps -a --filter name=open-webui"
 stty quit undef
+export GEMINI_API_KEY="GEMINI_API_KEY"
