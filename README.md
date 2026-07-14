@@ -38,6 +38,7 @@ Pure neon on black across all tools:
 - **Yazi:** Custom neon theme (Yazi 26.x schema format)
 - **Btop:** Custom `neon_black` theme
 - **Peaclock:** Neon black theme (hot pink digits, cyan colons, yellow date)
+- **GTK apps:** Arc-Darker base theme + custom black CSS override (gtk-3.0/gtk-4.0), Papirus-Dark icons — keeps nm-connection-editor, file pickers, and other GTK dialogs pure black instead of default light/glassy
 
 ---
 
@@ -97,6 +98,8 @@ chsh -s $(which zsh)
 | lazygit/ | ~/.config/lazygit |
 | peaclock/config | ~/.peaclock/config |
 | gtk-3.0/ | ~/.config/gtk-3.0 |
+| gtk-4.0/ | ~/.config/gtk-4.0 |
+| xdg-desktop-portal/ | ~/.config/xdg-desktop-portal |
 | zshrc | ~/.zshrc |
 
 ## What install.sh installs (non-symlink)
@@ -122,3 +125,4 @@ chsh -s $(which zsh)
 - Yazi theme uses 26.x schema format (`"$schema"` field required, `url` instead of `name` in filetype rules)
 - Btop uses custom `neon_black` theme located in `btop/themes/neon_black.theme`
 - Peaclock config at `~/.peaclock/config` — neon black theme matching btop/cava
+- GTK dialogs (file pickers, nm-connection-editor) require `xdg-desktop-portal/hyprland-portals.conf` to respect the custom theme — without it, GTK4 apps fall back to default styling regardless of gtk.css
