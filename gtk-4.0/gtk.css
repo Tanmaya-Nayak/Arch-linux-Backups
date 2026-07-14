@@ -1,0 +1,14 @@
+window, .background {
+    background-color: #000000;
+}
+headerbar, .titlebar {
+    background-color: #000000;
+    border-color: #FF007C;
+}
+treeview, list, .view {
+    background-color: #000000;
+    color: #ffffff;
+}
+row:selected {
+    background-color: #FF007C;
+}

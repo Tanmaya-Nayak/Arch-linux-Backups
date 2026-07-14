@@ -47,6 +47,12 @@ link "$DOTFILES/rofi" ~/.config/rofi
 echo "✓ rofi"
 link "$DOTFILES/kitty" ~/.config/kitty
 echo "✓ kitty"
+link "$DOTFILES/gtk-3.0" ~/.config/gtk-3.0
+echo "✓ gtk-3.0"
+link "$DOTFILES/gtk-4.0" ~/.config/gtk-4.0
+echo "✓ gtk-4.0"
+link "$DOTFILES/xdg-desktop-portal" ~/.config/xdg-desktop-portal
+echo "✓ xdg-desktop-portal"
 link "$DOTFILES/nvim" ~/.config/nvim
 echo "✓ nvim"
 link "$DOTFILES/mako" ~/.config/mako
