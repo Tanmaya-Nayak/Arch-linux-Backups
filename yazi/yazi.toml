@@ -44,6 +44,9 @@ view_video = [
 extract = [
   { run = '/home/xstream/.config/yazi/extract.sh "$@"', orphan = false, desc = "unzip" },
 ]
+office = [
+  { run = 'libreoffice "$@"', orphan = true, desc = "LibreOffice" },
+]
 
 [open]
 rules = [
@@ -68,5 +71,15 @@ rules = [
   { mime = "image/*",  use = "view_image" },
   { mime = "video/*",  use = "view_video" },
   { mime = "audio/*",  use = "view_video" },
+  { url = "*.docx", use = "office" },
+  { url = "*.doc",  use = "office" },
+  { url = "*.odt",  use = "office" },
+  { url = "*.xlsx", use = "office" },
+  { url = "*.xls",  use = "office" },
+  { url = "*.ods",  use = "office" },
+  { url = "*.pptx", use = "office" },
+  { url = "*.ppt",  use = "office" },
+  { url = "*.odp",  use = "office" },
+  { mime = "application/vnd.openxmlformats-officedocument.wordprocessingml.document", use = "office" },
   { mime = "*", use = "edit" },
 ]
