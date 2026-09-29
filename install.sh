@@ -59,6 +59,15 @@ link "$DOTFILES/xdg-desktop-portal" ~/.config/xdg-desktop-portal
 echo "✓ xdg-desktop-portal"
 link "$DOTFILES/nvim" ~/.config/nvim-old
 link "$DOTFILES/nvim-mine" ~/.config/nvim-mine
+mkdir -p ~/.local/bin
+link "$DOTFILES/bin/nv" ~/.local/bin/nv
+
+# LazyVim: install the starter only if ~/.config/nvim doesn't exist yet
+if [ ! -e ~/.config/nvim ]; then
+  git clone --depth 1 https://github.com/LazyVim/starter ~/.config/nvim \
+    && rm -rf ~/.config/nvim/.git \
+    || echo "  ! LazyVim clone failed, run it manually later"
+fi
 echo "✓ nvim"
 link "$DOTFILES/mako" ~/.config/mako
 echo "✓ mako"
@@ -77,18 +86,20 @@ echo "✓ lazygit"
 link "$DOTFILES/peaclock/config" ~/.peaclock/config
 echo "✓ peaclock"
 link "$DOTFILES/zshrc" ~/.zshrc
-# [ -f "$DOTFILES/.p10k.zsh" ] && link "$DOTFILES/.p10k.zsh" ~/.p10k.zsh
 link "$DOTFILES/starship/starship.toml" ~/.config/starship.toml
 echo "✓ zsh"
 
 # ── Zsh plugins ───────────────────────────────────────────────
-if [ ! -d "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions" ]; then
-  git clone https://github.com/zsh-users/zsh-autosuggestions \
-    ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+  git clone --depth 1 https://github.com/ohmyzsh/ohmyzsh.git "$HOME/.oh-my-zsh"
 fi
-if [ ! -d "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting" ]; then
+if [ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions" ]; then
+  git clone https://github.com/zsh-users/zsh-autosuggestions \
+    "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"/plugins/zsh-autosuggestions
+fi
+if [ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting" ]; then
   git clone https://github.com/zsh-users/zsh-syntax-highlighting \
-    ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+    "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"/plugins/zsh-syntax-highlighting
 fi
 echo "✓ zsh plugins"
 
@@ -98,7 +109,8 @@ echo "✓ zsh plugins"
 # packages-aur.txt) and enabled with its default settings.
 if command -v ly &>/dev/null || pacman -Qi ly &>/dev/null; then
   sudo systemctl disable sddm.service 2>/dev/null || true
-  sudo systemctl enable ly.service
+  sudo systemctl disable getty@tty2.service 2>/dev/null || true
+  sudo systemctl enable ly@tty2.service
   echo "✓ ly enabled"
 else
   echo "⚠ ly not found — add 'ly' to packages-native.txt or packages-aur.txt"
@@ -134,18 +146,14 @@ fi
 # ── Neovim formatter tooling ────────────────────────────────────
 # LazyVim's conform.nvim needs these binaries on $PATH to actually format.
 echo "Installing Neovim formatter tooling..."
-sudo pacman -S --needed --noconfirm clang stylua jq shfmt
+sudo pacman -S --needed --noconfirm clang stylua jq shfmt python-black
 echo "✓ clang, stylua, jq, shfmt"
 
-pip install --break-system-packages --quiet black
 echo "✓ black"
 
 if ! command -v prettier &>/dev/null; then
   mkdir -p ~/.npm-global
   npm config set prefix "$HOME/.npm-global"
-  if ! grep -q '.npm-global/bin' ~/.zshrc 2>/dev/null; then
-    echo 'export PATH=~/.npm-global/bin:$PATH' >>~/.zshrc
-  fi
   export PATH="$HOME/.npm-global/bin:$PATH"
   npm install -g prettier
   echo "✓ prettier"

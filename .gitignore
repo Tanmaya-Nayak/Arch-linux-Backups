@@ -1,5 +1,8 @@
 # Lazy plugin cache
 lazy-lock.json
 nvim/nvim/
-init.lua
+/init.lua
 # lua/  # removed - was blocking nvim/lua/ tracking
+
+# keep the nv launcher (global gitignore ignores **/bin/*)
+!bin/nv
