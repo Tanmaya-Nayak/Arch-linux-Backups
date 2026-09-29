@@ -54,6 +54,7 @@ portaudio
 python-pip
 ripgrep
 rofi
+rust
 shellcheck
 shfmt
 starship

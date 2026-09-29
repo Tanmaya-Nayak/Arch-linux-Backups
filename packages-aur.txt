@@ -4,4 +4,3 @@ grimblast-git
 peaclock
 rose-pine-hyprcursor
 ryzenadj
-sddm-astronaut-theme

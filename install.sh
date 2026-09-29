@@ -131,6 +131,11 @@ if [ -f "$DOTFILES/ryzenadj.service" ]; then
   echo "✓ ryzenadj"
 fi
 
+# ── Shell, services ─────────────────────────────────────────────
+sudo chsh -s /usr/bin/zsh "$USER"
+sudo systemctl enable NetworkManager.service bluetooth.service
+echo "✓ shell, services"
+
 # ── Cargo packages ────────────────────────────────────────────
 if command -v cargo &>/dev/null; then
   if ! command -v ttyper &>/dev/null; then
