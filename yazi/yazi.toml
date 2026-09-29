@@ -32,6 +32,9 @@ enabled = false
 edit = [
   { run = 'kitty --start-as=fullscreen nvim %s', orphan = true, desc = "nvim" },
 ]
+edit_clean = [
+  { run = 'kitty --start-as=fullscreen /home/xstream/.local/bin/nv %s', orphan = true, desc = "nvim (clean)" },
+]
 view_pdf = [
   { run = 'zathura %s', orphan = true, desc = "zathura" },
 ]
@@ -50,17 +53,17 @@ office = [
 
 [open]
 rules = [
-  { mime = "inode/x-empty", use = "edit" },
-  { url = "*.c",      use = "edit" },
-  { url = "*.cpp",    use = "edit" },
-  { url = "*.py",     use = "edit" },
-  { url = "*.js",     use = "edit" },
-  { url = "*.ts",     use = "edit" },
-  { url = "*.sh",     use = "edit" },
-  { url = "*.md",     use = "edit" },
-  { url = "*.toml",   use = "edit" },
-  { url = "*.json",   use = "edit" },
-  { mime = "text/*",   use = "edit" },
+  { mime = "inode/x-empty", use = ["edit", "edit_clean"] },
+  { url = "*.c",      use = ["edit", "edit_clean"] },
+  { url = "*.cpp",    use = ["edit", "edit_clean"] },
+  { url = "*.py",     use = ["edit", "edit_clean"] },
+  { url = "*.js",     use = ["edit", "edit_clean"] },
+  { url = "*.ts",     use = ["edit", "edit_clean"] },
+  { url = "*.sh",     use = ["edit", "edit_clean"] },
+  { url = "*.md",     use = ["edit", "edit_clean"] },
+  { url = "*.toml",   use = ["edit", "edit_clean"] },
+  { url = "*.json",   use = ["edit", "edit_clean"] },
+  { mime = "text/*",   use = ["edit", "edit_clean"] },
   { url = "*.pdf",    use = "view_pdf" },
   { mime = "application/pdf", use = "view_pdf" },
   { url = "*.mp4",    use = "view_video" },
@@ -81,5 +84,5 @@ rules = [
   { url = "*.ppt",  use = "office" },
   { url = "*.odp",  use = "office" },
   { mime = "application/vnd.openxmlformats-officedocument.wordprocessingml.document", use = "office" },
-  { mime = "*", use = "edit" },
+  { mime = "*", use = ["edit", "edit_clean"] },
 ]

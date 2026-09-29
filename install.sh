@@ -57,7 +57,8 @@ link "$DOTFILES/gtk-4.0" ~/.config/gtk-4.0
 echo "✓ gtk-4.0"
 link "$DOTFILES/xdg-desktop-portal" ~/.config/xdg-desktop-portal
 echo "✓ xdg-desktop-portal"
-link "$DOTFILES/nvim" ~/.config/nvim
+link "$DOTFILES/nvim" ~/.config/nvim-old
+link "$DOTFILES/nvim-mine" ~/.config/nvim-mine
 echo "✓ nvim"
 link "$DOTFILES/mako" ~/.config/mako
 echo "✓ mako"
