@@ -46,6 +46,8 @@ nodejs
 npm
 os-prober
 papirus-icon-theme
+pavucontrol
+pipewire
 pipewire-alsa
 pipewire-pulse
 playerctl
@@ -72,6 +74,7 @@ unrar
 unzip
 waybar
 wayland
+wireplumber
 wl-clipboard
 wofi
 xdg-desktop-portal-gtk
