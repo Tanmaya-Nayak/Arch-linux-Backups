@@ -109,8 +109,8 @@ echo "✓ zsh plugins"
 # packages-aur.txt) and enabled with its default settings.
 if command -v ly &>/dev/null || pacman -Qi ly &>/dev/null; then
   sudo systemctl disable sddm.service 2>/dev/null || true
-  sudo systemctl disable getty@tty2.service 2>/dev/null || true
-  sudo systemctl enable ly@tty2.service
+  sudo systemctl disable getty@tty1.service 2>/dev/null || true
+  sudo systemctl enable ly@tty1.service
   echo "✓ ly enabled"
 else
   echo "⚠ ly not found — add 'ly' to packages-native.txt or packages-aur.txt"

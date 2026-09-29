@@ -36,6 +36,7 @@ less
 linux
 linux-firmware
 lldb
+ly
 mako
 mpv
 neovim
@@ -53,7 +54,6 @@ portaudio
 python-pip
 ripgrep
 rofi
-sddm
 shellcheck
 shfmt
 starship
