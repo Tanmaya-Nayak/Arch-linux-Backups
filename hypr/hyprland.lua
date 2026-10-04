@@ -182,8 +182,33 @@ hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("cliphist list | rofi -dmenu | cliphi
 -- Hyprlock
 hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("hyprlock"))
 
+-- Super+Shift+X: flameshot normally; when fullscreen/maximized, region -> clipboard only
+hl.bind(mainMod .. " + SHIFT + X", function()
+	local w = hl.get_active_window()
+	if w and w.fullscreen ~= 0 then
+		hl.dispatch(hl.dsp.exec_cmd([[grim -g "$(slurp)" - | wl-copy]]))
+	else
+		hl.dispatch(hl.dsp.exec_cmd("flameshot gui"))
+	end
+end)
+
+-- Super+Alt+X: region -> clipboard AND saved to ~/Pictures/Screenshots
+hl.bind(
+	mainMod .. " + ALT + X",
+	hl.dsp.exec_cmd([[grim -g "$(slurp)" - | tee ~/Pictures/Screenshots/$(date +%F_%H-%M-%S).png | wl-copy]])
+)
+
 -- Fullscreen (native mode param isn't stable/documented yet, so using hyprctl directly is the safe bet)
-hl.bind(mainMod .. " + Z", hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }))
+-- Super + Z: normal <-> real fullscreen (waybar hidden)
+hl.bind(mainMod .. " + Z", function()
+	hl.dispatch(hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }))
+end)
+
+-- Super + Shift + Z: normal <-> maximized (waybar visible)
+hl.bind(mainMod .. " + SHIFT + Z", function()
+	hl.dispatch(hl.dsp.window.fullscreen({ mode = "maximized", action = "toggle" }))
+end)
+
 -- Waybar toggle
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("pkill -SIGUSR1 waybar"))
 
@@ -193,7 +218,7 @@ hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
 hl.bind(mainMod .. " + up", hl.dsp.focus({ direction = "up" }))
 hl.bind(mainMod .. " + down", hl.dsp.focus({ direction = "down" }))
 
--- Move window with mainMod + SHIFT + arrow keys
+-- Move window with maiMod + SHIFT + arrow keys
 hl.bind(mainMod .. " + SHIFT + left", hl.dsp.window.move({ direction = "left" }))
 hl.bind(mainMod .. " + SHIFT + right", hl.dsp.window.move({ direction = "right" }))
 hl.bind(mainMod .. " + SHIFT + up", hl.dsp.window.move({ direction = "up" }))

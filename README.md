@@ -17,7 +17,7 @@ Arch Linux + Hyprland setup. Clone and run install.sh to restore everything — 
 | Bluetooth        | Blueman                                       |
 | File manager     | Yazi                                          |
 | Screenshots      | Flameshot                                     |
-| Display manager  | ly                                           |
+| Display manager  | ly                                            |
 | System monitor   | Btop                                          |
 | Fetch            | Fastfetch                                     |
 | PDF viewer       | Zathura                                       |
@@ -142,12 +142,12 @@ chsh -s $(which zsh)
 
 ## What install.sh installs (non-symlink)
 
-| File in repo        | Installed to                | Purpose                                  |
-| ------------------- | --------------------------- | ---------------------------------------- |
-| packages-native.txt | via `pacman -S`             | official repo packages                   |
-| packages-aur.txt    | via `yay -S`                | AUR packages                             |
-| tlp.conf            | /etc/tlp.conf               | battery/power tuning, service enabled    |
-| ryzenadj.service    | /etc/systemd/system/        | APU power limit on boot, service enabled |
+| File in repo        | Installed to         | Purpose                                  |
+| ------------------- | -------------------- | ---------------------------------------- |
+| packages-native.txt | via `pacman -S`      | official repo packages                   |
+| packages-aur.txt    | via `yay -S`         | AUR packages                             |
+| tlp.conf            | /etc/tlp.conf        | battery/power tuning, service enabled    |
+| ryzenadj.service    | /etc/systemd/system/ | APU power limit on boot, service enabled |
 
 ---
 
