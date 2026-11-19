@@ -36,7 +36,7 @@ edit_clean = [
   { run = 'kitty --start-as=fullscreen /home/xstream/.local/bin/nv %s', orphan = true, desc = "nvim (clean)" },
 ]
 view_pdf = [
-  { run = 'zathura %s', orphan = true, desc = "zathura" },
+  { run = 'okular %s', orphan = true, desc = "okular" },
 ]
 view_image = [
   { run = 'imv -f %s', orphan = true, desc = "imv" },
