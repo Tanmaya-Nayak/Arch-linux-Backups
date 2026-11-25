@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plist version="1.0">
+<dict>
+  <key>name</key><string>retrobox</string>
+  <key>settings</key>
+  <array>
+    <dict><key>settings</key><dict>
+      <key>background</key><string>#1c1c1c</string>
+      <key>foreground</key><string>#ebdbb2</string>
+      <key>gutterForeground</key><string>#928374</string>
+    </dict></dict>
+
+    <dict><key>scope</key><string>comment, punctuation.definition.comment</string>
+      <key>settings</key><dict><key>foreground</key><string>#928374</string></dict></dict>
+
+    <dict><key>scope</key><string>string, punctuation.definition.string</string>
+      <key>settings</key><dict><key>foreground</key><string>#b8bb26</string></dict></dict>
+
+    <dict><key>scope</key><string>constant, constant.numeric, constant.language</string>
+      <key>settings</key><dict><key>foreground</key><string>#d3869b</string></dict></dict>
+
+    <dict><key>scope</key><string>entity.name.function, variable.function</string>
+      <key>settings</key><dict><key>foreground</key><string>#b8bb26</string><key>fontStyle</key><string>bold</string></dict></dict>
+
+    <dict><key>scope</key><string>keyword, storage, storage.type, keyword.control</string>
+      <key>settings</key><dict><key>foreground</key><string>#fb5944</string></dict></dict>
+
+    <dict><key>scope</key><string>keyword.operator</string>
+      <key>settings</key><dict><key>foreground</key><string>#8ec07c</string></dict></dict>
+
+    <dict><key>scope</key><string>keyword.operator.logical</string>
+      <key>settings</key><dict><key>foreground</key><string>#fb5944</string></dict></dict>
+
+    <dict><key>scope</key><string>support.type, support.class, entity.name.class, entity.name.type</string>
+      <key>settings</key><dict><key>foreground</key><string>#fabd2f</string></dict></dict>
+
+    <dict><key>scope</key><string>support.function, constant.character.escape, constant.other.placeholder</string>
+      <key>settings</key><dict><key>foreground</key><string>#fe8019</string></dict></dict>
+
+    <dict><key>scope</key><string>variable.other.member, support.variable</string>
+      <key>settings</key><dict><key>foreground</key><string>#83a598</string></dict></dict>
+  </array>
+</dict>
+</plist>
